@@ -34,7 +34,7 @@ ui/
     ├── js/
     │   ├── auth.js          FinRecAuth: mock auth service (swap in real SSO here)
     │   └── login.js         Validation, show/hide password, loading/error/success, routing
-    └── American_Express/    Official logos, symbol and banner (used as supplied)
+    └── American_Express/    Official logo, wordmark and banner (used as supplied)
 ```
 
 ## Plugging in real SSO later

@@ -62,6 +62,8 @@ Template: copy for each new session.
 
 **Verification:** Scratchpad Playwright at 1440x900 and 1280x800: no horizontal scroll, no console errors; CCID dropdown opens.
 
+- **Assets swapped:** the user replaced the Amex asset folder with 3 files. All pages now use them in their own types: `Registered Trademark Left.svg` (blue box: login, onboarding rail, cycle hub, favicon), `AXP_Logotype.png` (wordmark, light headers), `GettyImages.jpeg` (banner). The old 11 files are deleted; `CLAUDE.md` asset map updated.
+
 **Next:** User review; empty state (no matches for the filters) as a static variant; replace top bar with the Issue 4 shell.
 
 ### Session 6: 2026-10-04: Instructions step + review verdicts

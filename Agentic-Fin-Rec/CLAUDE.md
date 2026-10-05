@@ -55,11 +55,10 @@ New screens follow the same pattern: `ui/<screen>.html` + `assets/css/<screen>.c
 - **Type:** Inter → Helvetica fallback. Use the `--text-*` scale and `--weight-*` tokens; no ad-hoc sizes in screen CSS (SVG user-unit sizes are the exception).
 - **Spacing/shape/motion:** `--space-*` (4px base), `--radius-*`, `--shadow-*`, `--duration*` / `--ease-*`.
 - **Branding: use only the supplied American Express assets in `ui/assets/American_Express/`; never draw or fabricate logos or product imagery.** Use them as supplied: no recolouring, cropping, rounding, outlines or effects. Which asset where:
-  - **Blue Box logo** (`American_Express_Logo_Alternative_4.png`): on navy/dark surfaces (login brand panel). Use the PNG; the `_3.svg` version has no `viewBox` and may not scale reliably.
-  - **Wordmark** (`American_Express_Logo_0.svg`, blue): on light surfaces (page headers).
-  - **Symbol** (`American_Express_Symbol_6.svg`): favicon on every page, and small marks (e.g. the cycle hub).
-  - **Banner** (`American_Express_Banner_10.jpeg`, Platinum Card photo, 820×312): welcome / hero moments (onboarding, dashboard welcome). Keep it off dense working screens.
-  - `.webp` / `Icon_9.jpeg` are alternates; prefer the files above for consistency.
+  - **Blue Box logo** (`Registered Trademark Left.svg`): on navy/dark surfaces (login brand panel, onboarding rail), as the favicon on every page, and for small marks (the cycle hub).
+  - **Wordmark** (`AXP_Logotype.png`, blue): on light surfaces (page headers).
+  - **Banner** (`GettyImages.jpeg`, Platinum Card photo, 820×312): welcome / hero moments (dashboard welcome). Keep it off dense working screens.
+  - These three are the whole set. Use each in its own file type (SVG stays SVG, PNG stays PNG, JPEG stays JPEG); don't convert or substitute.
 - **Feel:** calm, minimal, trustworthy enterprise tool. **Motion must be restrained.** The user rejected a busy animated demo as "a bit too much". Prefer one slow, purposeful animation over many; always honour `prefers-reduced-motion` with a sensible static state.
 
 ## Component & CSS conventions
