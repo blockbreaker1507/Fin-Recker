@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Sign in to the Finance Reconciliation Agent.">
+  <title>Sign in · Finance Reconciliation Agent</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/American_Express/American_Express_Symbol_6.svg">
+
+  <!-- Inter, with Helvetica fallback if offline -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body class="login">
+
+  <!-- ================================================================
+       Brand panel: product pitch on desktop, compact header on tablet
+       ================================================================ -->
+  <aside class="brand" aria-label="About Finance Reconciliation Agent">
+    <a class="brand__logo" href="index.html" aria-label="American Express Finance Reconciliation Agent, home">
+      <img class="brand__mark" src="assets/American_Express/American_Express_Logo_Alternative_4.png" alt="" width="44" height="44">
+      <span class="brand__name">
+        Finance Reconciliation Agent
+        <span class="brand__eyebrow">American Express · Global Finance</span>
+      </span>
+    </a>
+
+    <div class="brand__hero">
+      <h2 class="brand__headline">Reconcile with confidence.</h2>
+      <p class="brand__tagline">
+        An AI agent that matches two datasets, flags every difference,
+        and gets smarter with every review.
+      </p>
+
+      <!-- Capability cycle: the agent's learning loop (source: Issues Summary/capabilities.md).
+           Pure SVG + CSS. Each node lights in turn; hovering a node pauses and shows its details. -->
+      <figure class="cycle">
+        <figcaption class="visually-hidden">
+          How the agent works: data from IRIS and grassroots use cases lands in a staging database,
+          then moves through a continuous loop of six capabilities.
+          1. Data Context: classifies transactions and enriches them with policies and reference data.
+          2. Fuzzy Matching: normalises data and matches on description, reference and journal-entry date, with a confidence threshold and candidate ranking.
+          3. Document Intelligence: classifies SOPs and supporting documents and extracts their data into a structured format.
+          4. Investigation: analyst-like research using semantic search and LLM match scoring to rank candidates.
+          5. Human Review: every AI match is approved or rejected by a reviewer, with email and Slack alerts.
+          6. Feedback Loop: every decision and reason is stored and shapes future recommendations, feeding back into Data Context.
+          Outputs are a reconciled report, governance and audit trail, decision logs and reject-reason logs.
+        </figcaption>
+
+        <svg class="cycle__graph" viewBox="0 0 500 420" aria-hidden="true">
+          <defs>
+            <marker id="cycle-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path class="cycle__arrowhead" d="M1 1.5 8 5 1 8.5"/>
+            </marker>
+          </defs>
+
+          <!-- Input / output -->
+          <g class="cycle__io">
+            <rect x="8" y="12" width="150" height="46" rx="10"/>
+            <text x="22" y="32" class="cycle__io-title">Staging DB</text>
+            <text x="22" y="49" class="cycle__io-sub">IRIS · Grassroots</text>
+            <path class="cycle__flow" d="M158 35 C 196 35, 196 80, 224 80" marker-end="url(#cycle-arrow)"/>
+          </g>
+          <g class="cycle__io">
+            <rect x="8" y="362" width="150" height="46" rx="10"/>
+            <text x="22" y="382" class="cycle__io-title">Outputs</text>
+            <text x="22" y="399" class="cycle__io-sub">Report · Audit · Logs</text>
+            <path class="cycle__flow" d="M126 296 C 112 320, 90 330, 84 358" marker-end="url(#cycle-arrow)"/>
+          </g>
+
+          <!-- Ring, direction chevrons and the travelling highlight -->
+          <circle class="cycle__ring" cx="250" cy="210" r="130"/>
+          <g class="cycle__chevrons">
+            <path d="M-3.5-4.5 1.5 0-3.5 4.5" transform="translate(315 97.4) rotate(30)"/>
+            <path d="M-3.5-4.5 1.5 0-3.5 4.5" transform="translate(380 210) rotate(90)"/>
+            <path d="M-3.5-4.5 1.5 0-3.5 4.5" transform="translate(315 322.6) rotate(150)"/>
+            <path d="M-3.5-4.5 1.5 0-3.5 4.5" transform="translate(185 322.6) rotate(210)"/>
+            <path d="M-3.5-4.5 1.5 0-3.5 4.5" transform="translate(120 210) rotate(270)"/>
+            <path d="M-3.5-4.5 1.5 0-3.5 4.5" transform="translate(185 97.4) rotate(330)"/>
+          </g>
+          <circle class="cycle__comet" cx="250" cy="210" r="130" pathLength="600" transform="rotate(-90 250 210)"/>
+
+          <!-- Hub -->
+          <g class="cycle__hub">
+            <circle cx="250" cy="210" r="62"/>
+            <image href="assets/American_Express/American_Express_Symbol_6.svg" x="235" y="174" width="30" height="30"/>
+            <text x="250" y="222" class="cycle__hub-title">AI Agent</text>
+            <text x="250" y="240" class="cycle__hub-sub">learns every cycle</text>
+          </g>
+
+          <!-- Capability nodes (clockwise from top) -->
+          <g class="node" data-n="0" style="--i: 0" transform="translate(250 80)">
+            <circle class="node__halo" r="32"/>
+            <circle class="node__dot" r="22"/>
+            <g class="node__icon" transform="translate(-9 -9) scale(.75)">
+              <path d="M12 3 3 7.5l9 4.5 9-4.5L12 3Z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/>
+            </g>
+            <text class="node__label" text-anchor="middle" y="-34">Data Context</text>
+          </g>
+
+          <g class="node" data-n="1" style="--i: 1" transform="translate(362.6 145)">
+            <circle class="node__halo" r="32"/>
+            <circle class="node__dot" r="22"/>
+            <g class="node__icon" transform="translate(-9 -9) scale(.75)">
+              <circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/>
+            </g>
+            <text class="node__label" x="34" y="-4">Fuzzy<tspan x="34" dy="17">Matching</tspan></text>
+          </g>
+
+          <g class="node" data-n="2" style="--i: 2" transform="translate(362.6 275)">
+            <circle class="node__halo" r="32"/>
+            <circle class="node__dot" r="22"/>
+            <g class="node__icon" transform="translate(-9 -9) scale(.75)">
+              <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/>
+            </g>
+            <text class="node__label" x="34" y="-4">Document<tspan x="34" dy="17">Intelligence</tspan></text>
+          </g>
+
+          <g class="node" data-n="3" style="--i: 3" transform="translate(250 340)">
+            <circle class="node__halo" r="32"/>
+            <circle class="node__dot" r="22"/>
+            <g class="node__icon" transform="translate(-9 -9) scale(.75)">
+              <circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/>
+            </g>
+            <text class="node__label" text-anchor="middle" y="46">Investigation</text>
+          </g>
+
+          <g class="node" data-n="4" style="--i: 4" transform="translate(137.4 275)">
+            <circle class="node__halo" r="32"/>
+            <circle class="node__dot" r="22"/>
+            <g class="node__icon" transform="translate(-9 -9) scale(.75)">
+              <circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="m16 11 2 2 4-4"/>
+            </g>
+            <text class="node__label" text-anchor="end" x="-34" y="-4">Human<tspan x="-34" dy="17">Review</tspan></text>
+          </g>
+
+          <g class="node" data-n="5" style="--i: 5" transform="translate(137.4 145)">
+            <circle class="node__halo" r="32"/>
+            <circle class="node__dot" r="22"/>
+            <g class="node__icon" transform="translate(-9 -9) scale(.75)">
+              <path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.9 1 6.7 2.7L21 8"/><path d="M21 3v5h-5"/>
+            </g>
+            <text class="node__label" text-anchor="end" x="-34" y="-4">Feedback<tspan x="-34" dy="17">Loop</tspan></text>
+          </g>
+        </svg>
+
+        <!-- Details for the active capability; all share one grid cell so height never changes -->
+        <div class="cycle__details" aria-hidden="true">
+          <div class="cycle__detail cycle__detail--intro">
+            <p class="cycle__step">6 capabilities · 1 learning loop</p>
+            <p class="cycle__title">How the agent works</p>
+            <p class="cycle__text">Hover a capability to see what it does.</p>
+          </div>
+          <div class="cycle__detail" data-n="0" style="--i: 0">
+            <p class="cycle__step">01 / 06 · Processing</p>
+            <p class="cycle__title">Data Context</p>
+            <p class="cycle__text">Defines the business context for every transaction.</p>
+            <p class="cycle__parts">Data classification · Context enrichment</p>
+          </div>
+          <div class="cycle__detail" data-n="1" style="--i: 1">
+            <p class="cycle__step">02 / 06 · Processing</p>
+            <p class="cycle__title">Fuzzy Matching</p>
+            <p class="cycle__text">Multi-parameter matching on description, reference and JE date.</p>
+            <p class="cycle__parts">Normalisation · Confidence threshold · Candidate ranking</p>
+          </div>
+          <div class="cycle__detail" data-n="2" style="--i: 2">
+            <p class="cycle__step">03 / 06 · Processing</p>
+            <p class="cycle__title">Document Intelligence</p>
+            <p class="cycle__text">Turns SOPs and supporting documents into structured data.</p>
+            <p class="cycle__parts">Document classification · Extraction &amp; normalisation</p>
+          </div>
+          <div class="cycle__detail" data-n="3" style="--i: 3">
+            <p class="cycle__step">04 / 06 · Processing</p>
+            <p class="cycle__title">Investigation</p>
+            <p class="cycle__text">Analyst-like research into gaps and candidate matches.</p>
+            <p class="cycle__parts">Semantic search (RAG) · LLM match scoring · Candidate ranking</p>
+          </div>
+          <div class="cycle__detail" data-n="4" style="--i: 4">
+            <p class="cycle__step">05 / 06 · Human in the loop</p>
+            <p class="cycle__title">Human Review</p>
+            <p class="cycle__text">Every AI match is approved or rejected by a reviewer.</p>
+            <p class="cycle__parts">Approve / reject · Email &amp; Slack alerts</p>
+          </div>
+          <div class="cycle__detail" data-n="5" style="--i: 5">
+            <p class="cycle__step">06 / 06 · Human in the loop</p>
+            <p class="cycle__title">Feedback Loop</p>
+            <p class="cycle__text">Every decision and reason is stored to shape the next recommendation.</p>
+            <p class="cycle__parts">Match patterns · Reject reasons · Smarter suggestions</p>
+          </div>
+        </div>
+      </figure>
+    </div>
+
+    <p class="brand__legal">For use by authorised personnel only. Activity is logged.</p>
+  </aside>
+
+  <!-- ================================================================
+       Sign-in
+       ================================================================ -->
+  <main class="auth" id="main">
+    <div class="auth__inner">
+
+      <section class="card auth-card" aria-labelledby="signin-title">
+        <header class="auth-card__header">
+          <h1 id="signin-title" class="auth-card__title">Sign in</h1>
+
+          <!-- Lede and error alert share one grid cell, so swapping them never shifts layout -->
+          <div class="auth-card__status">
+            <p class="auth-card__lede" id="signin-lede">
+              Use your corporate email or employee ID and password to continue.
+            </p>
+            <div class="alert alert--error auth-card__alert" id="form-alert" role="alert" aria-atomic="true">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm0-12.25a.75.75 0 0 1 .75.75v4a.75.75 0 0 1-1.5 0v-4a.75.75 0 0 1 .75-.75ZM10 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"/>
+              </svg>
+              <span id="form-alert-text"></span>
+            </div>
+          </div>
+        </header>
+
+        <noscript>
+          <p class="alert alert--error">JavaScript is required to sign in. Please enable it and reload the page.</p>
+        </noscript>
+
+        <form class="auth-form" id="signin-form" novalidate>
+          <fieldset class="auth-form__fields" id="signin-fields">
+            <legend class="visually-hidden">Sign-in credentials</legend>
+
+            <div class="field">
+              <label class="field__label" for="identifier">Email or employee ID</label>
+              <input
+                class="input"
+                id="identifier"
+                name="identifier"
+                type="text"
+                inputmode="email"
+                autocomplete="username"
+                autocapitalize="none"
+                autocorrect="off"
+                spellcheck="false"
+                placeholder="name@company.com"
+                aria-describedby="identifier-msg"
+                aria-invalid="false"
+                required
+                autofocus>
+              <p class="field__message" id="identifier-msg"></p>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="password">Password</label>
+              <div class="input-group">
+                <input
+                  class="input"
+                  id="password"
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  placeholder="Enter your password"
+                  aria-describedby="password-msg"
+                  aria-invalid="false"
+                  required>
+                <button
+                  class="input-action"
+                  id="toggle-password"
+                  type="button"
+                  aria-controls="password"
+                  aria-pressed="false"
+                  aria-label="Show password">
+                  <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                  <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M10.6 5.1A10.4 10.4 0 0 1 12 5c6.4 0 10 7 10 7a17.6 17.6 0 0 1-2.9 3.9M6.6 6.6C3.7 8.4 2 12 2 12s3.6 7 10 7a9.7 9.7 0 0 0 5.4-1.6"/>
+                    <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/>
+                    <path d="m3 3 18 18"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="field__row">
+                <p class="field__message" id="password-msg"></p>
+                <button class="link field__aside" type="button" popovertarget="forgot-help">Forgot password?</button>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="auth-form__actions">
+            <button class="btn btn--primary btn--block" id="signin-submit" type="submit">
+              <span class="btn__spinner" aria-hidden="true"></span>
+              <svg class="btn__check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m4.5 10.5 3.5 3.5 7.5-8"/>
+              </svg>
+              <span class="btn__label">Sign in</span>
+            </button>
+
+            <div class="divider" role="separator"><span>or</span></div>
+
+            <button class="btn btn--secondary btn--block" id="sso-submit" type="button">
+              <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+              <span class="btn__spinner" aria-hidden="true"></span>
+              <svg class="btn__check" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m4.5 10.5 3.5 3.5 7.5-8"/>
+              </svg>
+              <span class="btn__label">Sign in with SSO</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Announces loading / success to screen readers -->
+        <p class="visually-hidden" id="sr-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <details class="demo-hint">
+        <summary>Demo credentials</summary>
+        <p>
+          Use any valid email or employee ID with the password <code>Recon@2026</code>.
+          An account's first sign-in goes to onboarding; later sign-ins go straight to the dashboard.
+        </p>
+      </details>
+
+      <footer class="auth-footer">
+        <p>
+          Trouble signing in? Contact
+          <a class="link" href="mailto:recon-support@example.com">recon-support@example.com</a>
+        </p>
+        <p class="auth-footer__meta">
+          <span class="badge">Prototype</span>
+          <span>Mocked sign-in · v0.1</span>
+        </p>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- ================================================================
+       Forgot-password help: native popover, no script needed
+       ================================================================ -->
+  <div class="sheet" id="forgot-help" popover aria-labelledby="forgot-title">
+    <div class="sheet__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="10" width="16" height="11" rx="2.5"/>
+        <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+        <circle cx="12" cy="15.5" r="1.25" fill="currentColor"/>
+      </svg>
+    </div>
+    <h2 class="sheet__title" id="forgot-title">Reset your password</h2>
+    <p class="sheet__body">
+      Passwords are managed by your corporate identity provider. Use the
+      self-service reset portal, or contact Reconciliation Support and
+      we'll help you get back in.
+    </p>
+    <div class="sheet__actions">
+      <a class="btn btn--secondary" href="mailto:recon-support@example.com?subject=Password%20reset%20request">Email support</a>
+      <button class="btn btn--primary" type="button" popovertarget="forgot-help" popovertargetaction="hide">Got it</button>
+    </div>
+  </div>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/login.js"></script>
+</body>
+</html>

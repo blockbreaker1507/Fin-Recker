@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1440">
+  <title>Knowledge base · Set up · Finance Reconciliation Agent</title>
+  <link rel="icon" type="image/svg+xml" href="assets/American_Express/American_Express_Symbol_6.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/onboarding.css">
+</head>
+<!-- Issue 2: Onboarding, step 2 of 5. Static UI: no JavaScript; buttons are links. -->
+<body class="setup">
+  <aside class="rail" aria-label="Setup progress">
+    <a class="rail__brand" href="index.html" aria-label="American Express Finance Reconciliation Agent, sign-in page">
+      <img class="rail__logo" src="assets/American_Express/American_Express_Logo_Alternative_4.png" alt="" width="40" height="40">
+      <span class="rail__product">Finance Reconciliation Agent</span>
+    </a>
+
+    <div class="rail__intro">
+      <h2>Set up your workspace</h2>
+      <p>Five steps to get the agent ready. You can change any of this later in Settings.</p>
+    </div>
+
+    <nav aria-label="Setup steps">
+      <ol class="steps">
+          <li class="steps__item is-done">
+            <a class="steps__link" href="onboarding.html">
+              <span class="steps__marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+              <span>
+                <span class="steps__title">Add CCIDs</span>
+                <span class="steps__desc">Choose the accounts the agent will reconcile.</span>
+              <span class="steps__result">5 CCIDs verified</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item is-current">
+            <a class="steps__link" href="onboarding-knowledge-base.html" aria-current="step">
+              <span class="steps__marker">2</span>
+              <span>
+                <span class="steps__title">Knowledge base</span>
+                <span class="steps__desc">Share SOPs, example recons and supporting documents.</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item">
+            <a class="steps__link" href="onboarding-sources.html">
+              <span class="steps__marker">3</span>
+              <span>
+                <span class="steps__title">Connect sources</span>
+                <span class="steps__desc">Point the agent at the data it reconciles.</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item">
+            <a class="steps__link" href="onboarding-instructions.html">
+              <span class="steps__marker">4</span>
+              <span>
+                <span class="steps__title">Instructions</span>
+                <span class="steps__desc">Tell the agent how your team reconciles, in your words.</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item">
+            <a class="steps__link" href="onboarding-test-run.html">
+              <span class="steps__marker">5</span>
+              <span>
+                <span class="steps__title">Test run</span>
+                <span class="steps__desc">Review suggested rules and try them on sample data.</span>
+              </span>
+            </a>
+          </li>
+      </ol>
+    </nav>
+
+    <p class="rail__help">Questions about setup? Contact <a href="mailto:recon-support@example.com">recon-support@example.com</a></p>
+  </aside>
+
+  <div class="work">
+    <main class="work__scroll" id="main">
+      <div class="work__inner">
+        <header class="work__head">
+          <h1>Build the knowledge base</h1>
+          <p>Upload the SOPs, past reconciliations and supporting documents your team relies on. The agent reads them to learn how you match, which tolerances you allow and when to escalate.</p>
+        </header>
+
+        <label class="dropzone">
+          <span class="dropzone__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4"/><path d="m7.5 8.5 4.5-4.5 4.5 4.5"/><path d="M4 15v3.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V15"/></svg></span>
+          <span class="dropzone__title">Drag files here or <span>browse your computer</span></span>
+          <span class="dropzone__formats">Any format works, including PDF, Word, Excel, CSV, PowerPoint, Outlook emails and images. You can sort files into categories after uploading.</span>
+          <input class="file-input" type="file" multiple>
+        </label>
+
+        <section class="section" aria-labelledby="docs-title">
+          <div class="section__head">
+            <h2 id="docs-title">Uploaded documents <span class="section__count">9</span></h2>
+            <p>8 read by the agent, 1 needs attention</p>
+          </div>
+          <div class="doc-groups">
+          <div class="doc-group">
+            <div class="doc-group__head">
+              <h3>SOPs <span class="section__count">3</span></h3>
+              <p>How your team runs these reconciliations.</p>
+            </div>
+            <ul class="doc-list">
+              <li class="doc">
+                <span class="doc__type" aria-hidden="true">PDF</span>
+                <div>
+                  <span class="doc__name">IRIS GL to bank reconciliation SOP v4.2.pdf</span>
+                </div>
+                <span class="doc__size">2.4 MB</span>
+                <span class="chip chip--success">Read by agent</span>
+                <button class="icon-btn" type="button" aria-label="Remove IRIS GL to bank reconciliation SOP v4.2.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
+              </li>
+              <li class="doc">
+                <span class="doc__type" aria-hidden="true">DOCX</span>
+                <div>
+                  <span class="doc__name">Merchant settlement exceptions playbook.docx</span>
+                </div>
+                <span class="doc__size">860 KB</span>
+                <span class="chip chip--success">Read by agent</span>
+                <button class="icon-btn" type="button" aria-label="Remove Merchant settlement exceptions playbook.docx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
+              </li>
+              <li class="doc">
+                <span class="doc__type" aria-hidden="true">XLSX</span>
+                <div>
+                  <span class="doc__name">Month-end close checklist.xlsx</span>
+                </div>
+                <span class="doc__size">312 KB</span>
+                <span class="chip">Reading</span>
+                <button class="icon-btn" type="button" aria-label="Remove Month-end close checklist.xlsx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
+              </li>
+            </ul>
+          </div>
+          <div class="doc-group">
+            <div class="doc-group__head">
+              <h3>Example recons <span class="section__count">2</span></h3>
+              <p>Completed recons the agent can learn matches from.</p>
+            </div>
+            <ul class="doc-list">
+              <li class="doc">
+                <span class="doc__type" aria-hidden="true">XLSX</span>
+                <div>
+                  <span class="doc__name">Merchant settlements recon, August 2026.xlsx</span>
+                </div>
+                <span class="doc__size">4.1 MB</span>
+                <span class="chip chip--success">Read by agent</span>
+                <button class="icon-btn" type="button" aria-label="Remove Merchant settlements recon, August 2026.xlsx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
+              </li>
+              <li class="doc">
+                <span class="doc__type" aria-hidden="true">CSV</span>
+                <div>
+                  <span class="doc__name">Intercompany clearing recon Q2.csv</span>
+                </div>
+                <span class="doc__size">1.2 MB</span>
+                <span class="chip chip--success">Read by agent</span>
+                <button class="icon-btn" type="button" aria-label="Remove Intercompany clearing recon Q2.csv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
+              </li>
+            </ul>
+          </div>
+          <div class="doc-group">
+            <div class="doc-group__head">
+              <h3>Supporting documents <span class="section__count">4</span></h3>
+              <p>Policies, statements, approvals and anything else useful.</p>
+            </div>
+            <ul class="doc-list">
+              <li class="doc">
+                <span class="doc__type" aria-hidden="true">PDF</span>
+                <div>
+                  <span class="doc__name">FX rate policy 2026.pdf</span>
+                </div>
+                <span class="doc__size">1.8 MB</span>
+                <span class="chip chip--success">Read by agent</span>
+                <button class="icon-btn" type="button" aria-label="Remove FX rate policy 2026.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
+              </li>
+              <li class="doc">
+                <span class="doc__type" aria-hidden="true">PDF</span>
+                <div>
+                  <span class="doc__name">Bank statement sample, September.pdf</span>
+                </div>
+                <span class="doc__size">640 KB</span>
+                <span class="chip chip--success">Read by agent</span>
+                <button class="icon-btn" type="button" aria-label="Remove Bank statement sample, September.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
+              </li>
+              <li class="doc">
+                <span class="doc__type" aria-hidden="true">MSG</span>
+                <div>
+                  <span class="doc__name">Approval email, tolerance change.msg</span>
+                </div>
+                <span class="doc__size">96 KB</span>
+                <span class="chip chip--success">Read by agent</span>
+                <button class="icon-btn" type="button" aria-label="Remove Approval email, tolerance change.msg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
+              </li>
+              <li class="doc">
+                <span class="doc__type" aria-hidden="true">PNG</span>
+                <div>
+                  <span class="doc__name">Account mapping screenshot.png</span>
+                  <span class="doc__note">Text in the image is too small to read. Upload a higher-resolution copy.</span>
+                </div>
+                <span class="doc__size">410 KB</span>
+                <span class="chip chip--error">Couldn't read</span>
+                <button class="icon-btn" type="button" aria-label="Remove Account mapping screenshot.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
+              </li>
+            </ul>
+          </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="actions">
+      <a class="link actions__skip" href="dashboard.html">Skip setup for now</a>
+      <a class="btn btn--secondary" href="onboarding.html">Back</a>
+      <a class="btn btn--primary" href="onboarding-sources.html">Continue</a>
+    </footer>
+  </div>
+</body>
+</html>

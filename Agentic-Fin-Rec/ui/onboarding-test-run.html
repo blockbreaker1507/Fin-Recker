@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1440">
+  <title>Test run · Set up · Finance Reconciliation Agent</title>
+  <link rel="icon" type="image/svg+xml" href="assets/American_Express/American_Express_Symbol_6.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/onboarding.css">
+</head>
+<!-- Issue 2: Onboarding, step 5 of 5. Static UI: no JavaScript; buttons are links. -->
+<body class="setup">
+  <aside class="rail" aria-label="Setup progress">
+    <a class="rail__brand" href="index.html" aria-label="American Express Finance Reconciliation Agent, sign-in page">
+      <img class="rail__logo" src="assets/American_Express/American_Express_Logo_Alternative_4.png" alt="" width="40" height="40">
+      <span class="rail__product">Finance Reconciliation Agent</span>
+    </a>
+
+    <div class="rail__intro">
+      <h2>Set up your workspace</h2>
+      <p>Five steps to get the agent ready. You can change any of this later in Settings.</p>
+    </div>
+
+    <nav aria-label="Setup steps">
+      <ol class="steps">
+          <li class="steps__item is-done">
+            <a class="steps__link" href="onboarding.html">
+              <span class="steps__marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+              <span>
+                <span class="steps__title">Add CCIDs</span>
+                <span class="steps__desc">Choose the accounts the agent will reconcile.</span>
+              <span class="steps__result">5 CCIDs verified</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item is-done">
+            <a class="steps__link" href="onboarding-knowledge-base.html">
+              <span class="steps__marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+              <span>
+                <span class="steps__title">Knowledge base</span>
+                <span class="steps__desc">Share SOPs, example recons and supporting documents.</span>
+              <span class="steps__result">9 documents uploaded</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item is-done">
+            <a class="steps__link" href="onboarding-sources.html">
+              <span class="steps__marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+              <span>
+                <span class="steps__title">Connect sources</span>
+                <span class="steps__desc">Point the agent at the data it reconciles.</span>
+              <span class="steps__result">2 sources connected</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item is-done">
+            <a class="steps__link" href="onboarding-instructions.html">
+              <span class="steps__marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+              <span>
+                <span class="steps__title">Instructions</span>
+                <span class="steps__desc">Tell the agent how your team reconciles, in your words.</span>
+              <span class="steps__result">Instructions for 6 items</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item is-current">
+            <a class="steps__link" href="onboarding-test-run.html" aria-current="step">
+              <span class="steps__marker">5</span>
+              <span>
+                <span class="steps__title">Test run</span>
+                <span class="steps__desc">Review suggested rules and try them on sample data.</span>
+              </span>
+            </a>
+          </li>
+      </ol>
+    </nav>
+
+    <p class="rail__help">Questions about setup? Contact <a href="mailto:recon-support@example.com">recon-support@example.com</a></p>
+  </aside>
+
+  <div class="work">
+    <main class="work__scroll" id="main">
+      <div class="work__inner">
+        <header class="work__head">
+          <h1>Test your matching rules</h1>
+          <p>The agent suggested these rules from your example recons and SOPs. Turn rules on or off, then run a test on sample data to see how they perform before you go live.</p>
+        </header>
+
+        <div class="test-layout">
+          <section class="section" aria-labelledby="rules-title">
+            <div class="section__head">
+              <h2 id="rules-title">Suggested rules <span class="section__count">4</span></h2>
+              <p>3 turned on</p>
+            </div>
+            <ul class="rules">
+              <li class="rule">
+                <label class="switch">
+                  <input type="checkbox" checked aria-label="Use rule: Reference and amount match exactly">
+                  <span class="switch__track"></span>
+                </label>
+                <div>
+                  <span class="rule__title">Reference and amount match exactly</span>
+                  <span class="rule__desc">Ledger invoice number equals the bank reference, and amounts are identical.</span>
+                  <span class="rule__source">Learned from Merchant settlements recon, August 2026</span>
+                </div>
+                <span class="chip chip--success">97% confidence</span>
+              </li>
+              <li class="rule">
+                <label class="switch">
+                  <input type="checkbox" checked aria-label="Use rule: Amount within $0.01 and date within 2 days">
+                  <span class="switch__track"></span>
+                </label>
+                <div>
+                  <span class="rule__title">Amount within $0.01 and date within 2 days</span>
+                  <span class="rule__desc">Covers rounding and posting-date lag between the ledger and the bank.</span>
+                  <span class="rule__source">From your main instructions, confirmed by IRIS GL to bank reconciliation SOP v4.2</span>
+                </div>
+                <span class="chip chip--success">93% confidence</span>
+              </li>
+              <li class="rule">
+                <label class="switch">
+                  <input type="checkbox" checked aria-label="Use rule: Description similarity of 85% or more">
+                  <span class="switch__track"></span>
+                </label>
+                <div>
+                  <span class="rule__title">Description similarity of 85% or more</span>
+                  <span class="rule__desc">Matches records whose descriptions say the same thing in different words.</span>
+                  <span class="rule__source">Learned from Intercompany clearing recon Q2</span>
+                </div>
+                <span class="chip chip--warning">78% confidence</span>
+              </li>
+              <li class="rule">
+                <label class="switch">
+                  <input type="checkbox" aria-label="Use rule: Group settlements by batch ID">
+                  <span class="switch__track"></span>
+                </label>
+                <div>
+                  <span class="rule__title">Group settlements by batch ID</span>
+                  <span class="rule__desc">Matches one bank deposit to several ledger lines that share a batch ID.</span>
+                  <span class="rule__source">Suggested from patterns in Merchant settlements recon, August 2026</span>
+                </div>
+                <span class="chip chip--warning">71% confidence</span>
+              </li>
+            </ul>
+          </section>
+
+          <aside class="panel run" aria-labelledby="run-title">
+            <div>
+              <h2 id="run-title">Test run</h2>
+              <p class="run__intro">Runs the rules that are turned on against a sample. Nothing is posted or changed.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="sample">Sample</label>
+              <div class="select">
+                <select id="sample">
+                  <option>Last 30 days (4,812 records)</option>
+                  <option>Last 7 days (1,106 records)</option>
+                  <option>August 2026 close (5,340 records)</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn btn--primary btn--block" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5L8 5.5Z" fill="currentColor" stroke="none"/></svg> Run test</button>
+
+            <div class="run__result">
+              <p class="run__when">Last test today at 10:42, took 38 seconds</p>
+              <p class="run__rate"><strong>92.1%</strong> <span>matched automatically</span></p>
+              <div class="outcome" role="img" aria-label="4,431 matched, 286 need review, 95 unmatched">
+                <span class="outcome__matched" style="width: 92.1%"></span>
+                <span class="outcome__review" style="width: 5.9%"></span>
+                <span class="outcome__none" style="width: 2%"></span>
+              </div>
+              <ul class="legend">
+                <li style="--swatch: var(--color-success)">Matched <strong>4,431</strong></li>
+                <li style="--swatch: var(--color-warning)">Needs review <strong>286</strong></li>
+                <li style="--swatch: var(--color-error)">Unmatched <strong>95</strong></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+
+        <section class="section" aria-labelledby="matches-title">
+          <div class="section__head">
+            <h2 id="matches-title">Review matches from the test</h2>
+            <p>4 of 5 reviewed: 2 approved, 1 not sure, 1 declined. Your answers teach the agent.</p>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Dataset A record</th>
+                  <th scope="col">Dataset B record</th>
+                  <th scope="col">Matched by</th>
+                  <th scope="col">Your review</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="rec"><span class="rec__line"><b>INV-20418</b><span class="rec__amount">$12,480.00</span></span><span>Merchant settlement</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-88213</b><span class="rec__amount">$12,480.00</span></span><span>AMEX SETTLE 0918</span></span></td>
+                  <td><span class="rule-cell"><span>Reference and amount</span><span class="chip chip--success">99% confidence</span></span></td>
+                  <td><fieldset class="verdict">
+                      <legend class="visually-hidden">Review match for INV-20418</legend>
+                      <label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-INV-20418" value="approve" checked><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-INV-20418" value="unsure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-INV-20418" value="decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label>
+                    </fieldset></td>
+                </tr>
+                <tr>
+                  <td><span class="rec"><span class="rec__line"><b>INV-20422</b><span class="rec__amount">$3,915.50</span></span><span>Merchant settlement</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-88240</b><span class="rec__amount">$3,915.50</span></span><span>AMEX SETTLE 0919</span></span></td>
+                  <td><span class="rule-cell"><span>Reference and amount</span><span class="chip chip--success">98% confidence</span></span></td>
+                  <td><fieldset class="verdict">
+                      <legend class="visually-hidden">Review match for INV-20422</legend>
+                      <label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-INV-20422" value="approve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-INV-20422" value="unsure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-INV-20422" value="decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label>
+                    </fieldset></td>
+                </tr>
+                <tr>
+                  <td><span class="rec"><span class="rec__line"><b>JE-55102</b><span class="rec__amount">$27,000.00</span></span><span>Rewards accrual, September</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-88266</b><span class="rec__amount">$27,000.00</span></span><span>REWARDS ACCR SEP</span></span></td>
+                  <td><span class="rule-cell"><span>Description similarity</span><span class="chip chip--success">88% confidence</span></span></td>
+                  <td><fieldset class="verdict">
+                      <legend class="visually-hidden">Review match for JE-55102</legend>
+                      <label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-JE-55102" value="approve" checked><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-JE-55102" value="unsure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-JE-55102" value="decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label>
+                    </fieldset></td>
+                </tr>
+                <tr>
+                  <td><span class="rec"><span class="rec__line"><b>INV-20427</b><span class="rec__amount">$860.12</span></span><span>Intercompany clearing</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-88251</b><span class="amount-diff">$860.00</span></span><span>IC CLEAR UK 0920, <span class="amount-diff">$0.12 difference</span></span></span></td>
+                  <td><span class="rule-cell"><span>Description similarity</span><span class="chip chip--warning">74% confidence</span></span></td>
+                  <td><fieldset class="verdict">
+                      <legend class="visually-hidden">Review match for INV-20427</legend>
+                      <label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-INV-20427" value="approve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-INV-20427" value="unsure" checked><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-INV-20427" value="decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label>
+                    </fieldset></td>
+                </tr>
+                <tr>
+                  <td><span class="rec"><span class="rec__line"><b>INV-20431</b><span class="rec__amount">$5,210.00</span></span><span>Merchant settlement</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-88270</b><span class="amount-diff">$5,120.00</span></span><span>AMEX SETTLE 0921, <span class="amount-diff">$90.00 difference</span></span></span></td>
+                  <td><span class="rule-cell"><span>Description similarity</span><span class="chip chip--warning">61% confidence</span></span></td>
+                  <td><fieldset class="verdict">
+                      <legend class="visually-hidden">Review match for INV-20431</legend>
+                      <label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-INV-20431" value="approve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-INV-20431" value="unsure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-INV-20431" value="decline" checked><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label>
+                    </fieldset></td>
+                </tr>
+                <tr>
+                  <td><span class="rec"><span class="rec__line"><b>INV-20435</b><span class="rec__amount">$1,204.75</span></span><span>Merchant settlement</span></span></td>
+                  <td class="table__muted">No likely match in Dataset B</td>
+                  <td><span class="chip chip--error">Unmatched</span></td>
+                  <td class="table__muted">Nothing to review</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="actions">
+      <a class="link actions__skip" href="dashboard.html">Skip setup for now</a>
+      <a class="btn btn--secondary" href="onboarding-instructions.html">Back</a>
+      <a class="btn btn--primary" href="dashboard.html">Finish setup</a>
+    </footer>
+  </div>
+</body>
+</html>

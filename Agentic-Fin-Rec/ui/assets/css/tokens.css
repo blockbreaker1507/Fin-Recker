@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Design tokens: Finance Reconciliation Agent
+   --------------------------------------------------------------------------
+   Single source of truth for colour, type, spacing, radius, shadow and
+   motion. Screens reference these variables only; raw hex values belong
+   in this file and nowhere else (Issue 4 acceptance criterion).
+
+   Palette is Amex-aligned for an internal tool, not an official brand spec.
+   ========================================================================== */
+
+:root {
+  /* ---- Brand ------------------------------------------------------------ */
+  --color-primary:          #006FCF;  /* buttons, links, active states   */
+  --color-primary-hover:    #005BB0;
+  --color-primary-active:   #004C93;
+  --color-primary-soft:     #E8F2FC;  /* tinted backgrounds              */
+  --color-primary-glow:     rgba(0, 111, 207, 0.55);
+  --color-primary-glow-soft: rgba(0, 111, 207, 0.32);
+  --color-navy:             #00175A;  /* headings, sidebar, dark surfaces */
+  --color-navy-deep:        #000F3D;
+  --color-navy-raised:      #0B2468;  /* nodes / raised shapes on navy  */
+  --color-primary-on-dark:  #6CB4F5;  /* primary accent on navy: 7.4:1  */
+
+  /* ---- Neutrals --------------------------------------------------------- */
+  --color-slate:            #53565A;  /* secondary text                   */
+  --color-bg:               #F7F8F9;  /* page background                  */
+  --color-surface:          #FFFFFF;  /* cards, inputs                    */
+  --color-surface-muted:    #F1F3F5;  /* disabled inputs, wells           */
+  --color-border:           #D5DAE0;
+  --color-border-strong:    #8A9099;
+  --color-hairline:         rgba(0, 23, 90, 0.06);
+  --color-text:             #12161C;
+  --color-text-muted:       var(--color-slate);
+  --color-text-subtle:      #6B7076;  /* placeholders: 5:1 on white      */
+
+  /* ---- On dark surfaces (navy) ----------------------------------------- */
+  --color-on-dark:          #FFFFFF;
+  --color-on-dark-muted:    rgba(255, 255, 255, 0.74);
+  --color-on-dark-subtle:   rgba(255, 255, 255, 0.52);
+  --color-on-dark-line:     rgba(255, 255, 255, 0.12);
+  --color-on-dark-glass:    rgba(255, 255, 255, 0.06);
+  --color-on-dark-grid:     rgba(255, 255, 255, 0.06);
+
+  /* ---- Status ----------------------------------------------------------- */
+  --color-success:          #2E7D32;  /* matched, completed */
+  --color-success-soft:     #EAF4EA;
+  --color-success-on-dark:  #8FD694;
+  --color-warning:          #B26A00;  /* needs review       */
+  --color-warning-soft:     #FFF4E0;
+  --color-warning-on-dark:  #FFC567;
+  --color-error:            #C62828;  /* failed, unmatched  */
+  --color-error-soft:       #FDECEC;
+  --color-error-line:       rgba(198, 40, 40, 0.24);
+  --color-error-on-dark:    #FF9A9A;
+
+  /* Caution (yellow): "Not sure" review verdict. Dark ink keeps AA contrast. */
+  --color-caution:          #F2B600;
+  --color-caution-soft:     #FFF7D9;
+  --color-caution-ink:      #5C4300;
+  --color-caution-line:     rgba(194, 146, 0, 0.45);
+  --color-success-line:     rgba(46, 125, 50, 0.35);
+
+  /* ---- Focus ------------------------------------------------------------ */
+  --focus-ring:             0 0 0 4px rgba(0, 111, 207, 0.22);
+  --focus-ring-error:       0 0 0 4px rgba(198, 40, 40, 0.18);
+  --focus-outline:          2px solid var(--color-primary);
+
+  /* ---- Typography ------------------------------------------------------- */
+  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --text-2xs:     0.75rem;    /* 12px */
+  --text-xs:      0.8125rem;  /* 13px */
+  --text-sm:      0.875rem;   /* 14px */
+  --text-md:      0.9375rem;  /* 15px */
+  --text-base:    1rem;       /* 16px */
+  --text-lg:      1.125rem;   /* 18px */
+  --text-xl:      1.5rem;     /* 24px */
+  --text-2xl:     1.75rem;    /* 28px */
+  --text-display: clamp(2rem, 1.1rem + 2.4vw, 3.25rem);
+  --text-display-sm: 2.25rem; /* display on laptop-height screens */
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  --leading-tight:  1.12;
+  --leading-snug:   1.35;
+  --leading-normal: 1.55;
+
+  --tracking-tight: -0.022em;
+  --tracking-wide:  0.08em;
+
+  /* ---- Spacing (4px base) ----------------------------------------------- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* ---- Shape ------------------------------------------------------------ */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   20px;
+  --radius-pill: 999px;
+
+  --control-height: 3rem;
+
+  /* ---- Elevation -------------------------------------------------------- */
+  --shadow-sm:   0 1px 2px rgba(0, 23, 90, 0.06);
+  --shadow-card: 0 1px 2px rgba(0, 23, 90, 0.04),
+                 0 16px 40px -12px rgba(0, 23, 90, 0.16);
+  --shadow-lg:   0 2px 4px rgba(0, 23, 90, 0.06),
+                 0 32px 64px -16px rgba(0, 23, 90, 0.28);
+  --shadow-btn:  0 1px 2px rgba(0, 23, 90, 0.12),
+                 inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  --shadow-glass: 0 24px 48px -24px rgba(0, 0, 0, 0.5);
+
+  --backdrop:    rgba(0, 15, 61, 0.48);
+
+  /* ---- Motion ----------------------------------------------------------- */
+  --ease-out:      cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 120ms;
+  --duration:      200ms;
+  --duration-slow: 420ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration:      0ms;
+    --duration-slow: 0ms;
+  }
+}

@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1440">
+  <title>Connect sources · Set up · Finance Reconciliation Agent</title>
+  <link rel="icon" type="image/svg+xml" href="assets/American_Express/American_Express_Symbol_6.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/onboarding.css">
+</head>
+<!-- Issue 2: Onboarding, step 3 of 5. Static UI: no JavaScript; buttons are links. -->
+<body class="setup">
+  <aside class="rail" aria-label="Setup progress">
+    <a class="rail__brand" href="index.html" aria-label="American Express Finance Reconciliation Agent, sign-in page">
+      <img class="rail__logo" src="assets/American_Express/American_Express_Logo_Alternative_4.png" alt="" width="40" height="40">
+      <span class="rail__product">Finance Reconciliation Agent</span>
+    </a>
+
+    <div class="rail__intro">
+      <h2>Set up your workspace</h2>
+      <p>Five steps to get the agent ready. You can change any of this later in Settings.</p>
+    </div>
+
+    <nav aria-label="Setup steps">
+      <ol class="steps">
+          <li class="steps__item is-done">
+            <a class="steps__link" href="onboarding.html">
+              <span class="steps__marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+              <span>
+                <span class="steps__title">Add CCIDs</span>
+                <span class="steps__desc">Choose the accounts the agent will reconcile.</span>
+              <span class="steps__result">5 CCIDs verified</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item is-done">
+            <a class="steps__link" href="onboarding-knowledge-base.html">
+              <span class="steps__marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+              <span>
+                <span class="steps__title">Knowledge base</span>
+                <span class="steps__desc">Share SOPs, example recons and supporting documents.</span>
+              <span class="steps__result">9 documents uploaded</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item is-current">
+            <a class="steps__link" href="onboarding-sources.html" aria-current="step">
+              <span class="steps__marker">3</span>
+              <span>
+                <span class="steps__title">Connect sources</span>
+                <span class="steps__desc">Point the agent at the data it reconciles.</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item">
+            <a class="steps__link" href="onboarding-instructions.html">
+              <span class="steps__marker">4</span>
+              <span>
+                <span class="steps__title">Instructions</span>
+                <span class="steps__desc">Tell the agent how your team reconciles, in your words.</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item">
+            <a class="steps__link" href="onboarding-test-run.html">
+              <span class="steps__marker">5</span>
+              <span>
+                <span class="steps__title">Test run</span>
+                <span class="steps__desc">Review suggested rules and try them on sample data.</span>
+              </span>
+            </a>
+          </li>
+      </ol>
+    </nav>
+
+    <p class="rail__help">Questions about setup? Contact <a href="mailto:recon-support@example.com">recon-support@example.com</a></p>
+  </aside>
+
+  <div class="work">
+    <main class="work__scroll" id="main">
+      <div class="work__inner">
+        <header class="work__head">
+          <h1>Connect your data sources</h1>
+          <p>Tell the agent where the data to be reconciled lives. Add at least one source for each side of the reconciliation.</p>
+        </header>
+
+        <section class="section sources" aria-labelledby="add-source-title">
+          <div class="section__head">
+            <h2 id="add-source-title">Add a source</h2>
+          </div>
+
+          <fieldset class="source-types">
+            <legend class="visually-hidden">Source type</legend>
+          <label class="source-card">
+            <input type="radio" name="source-type" id="src-bigquery" checked>
+            <span class="source-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.5"/><path d="M4.5 5.5v13c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5v-13"/><path d="M4.5 12c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5"/></svg></span>
+            <span class="source-card__title">BigQuery table</span>
+            <span class="source-card__desc">Query a table or view in BigQuery.</span>
+          </label>
+          <label class="source-card">
+            <input type="radio" name="source-type" id="src-sharepoint">
+            <span class="source-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></span>
+            <span class="source-card__title">SharePoint link</span>
+            <span class="source-card__desc">Files in a SharePoint folder or library.</span>
+          </label>
+          <label class="source-card">
+            <input type="radio" name="source-type" id="src-gcs">
+            <span class="source-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18.5a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9.5H7Z"/></svg></span>
+            <span class="source-card__title">Cloud Storage</span>
+            <span class="source-card__desc">Files in a Google Cloud Storage bucket.</span>
+          </label>
+          <label class="source-card">
+            <input type="radio" name="source-type" id="src-upload">
+            <span class="source-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/><path d="M12 17.5v-6"/><path d="m9.5 14 2.5-2.5 2.5 2.5"/></svg></span>
+            <span class="source-card__title">File upload</span>
+            <span class="source-card__desc">Upload a CSV or Excel extract.</span>
+          </label>
+          <label class="source-card">
+            <input type="radio" name="source-type" id="src-other" disabled>
+            <span class="source-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3v5M15 3v5"/><path d="M6 8h12v3a6 6 0 0 1-12 0V8Z"/><path d="M12 17v4"/></svg></span>
+            <span class="source-card__title">Other systems</span>
+            <span class="source-card__desc">Lumi, sub-ledger, AP / AR and more.</span>
+            <span class="badge">Planned</span>
+          </label>
+          </fieldset>
+
+          <div class="panel source-form source-form--bigquery">
+            <div class="form-grid" style="grid-template-columns: repeat(4, minmax(0, 1fr))">
+              <div class="field">
+                <label class="field__label" for="bq-project">Project</label>
+                <div class="select"><select id="bq-project"><option>fin-recon-prod</option><option>fin-recon-uat</option></select></div>
+              </div>
+              <div class="field">
+                <label class="field__label" for="bq-dataset">Dataset</label>
+                <div class="select"><select id="bq-dataset"><option>iris_gl</option><option>bank_feeds</option><option>sub_ledgers</option></select></div>
+              </div>
+              <div class="field">
+                <label class="field__label" for="bq-table">Table or view</label>
+                <div class="select"><select id="bq-table"><option>journal_entries</option><option>je_lines_daily</option><option>account_balances</option></select></div>
+              </div>
+              <div class="field">
+                <label class="field__label" for="bq-use">Use for</label>
+                <div class="select">
+                  <select id="bq-use">
+                    <option>Dataset A</option>
+                    <option>Dataset B</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <p class="hint">The agent reads this table with your access. Nothing in BigQuery is changed.</p>
+              <button class="btn btn--secondary" type="button">Connect table</button>
+            </div>
+          </div>
+
+          <div class="panel source-form source-form--sharepoint">
+            <div class="form-grid form-grid--wide">
+              <div class="field">
+                <label class="field__label" for="sp-link">SharePoint link</label>
+                <input class="input" id="sp-link" type="url" placeholder="https://yourcompany.sharepoint.com/sites/finance/Shared Documents/…">
+              </div>
+              <div class="field">
+                <label class="field__label" for="sp-use">Use for</label>
+                <div class="select">
+                  <select id="sp-use">
+                    <option>Dataset A</option>
+                    <option>Dataset B</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <p class="hint">Paste a link to a folder or a single file. Every file in a folder is included.</p>
+              <button class="btn btn--secondary" type="button">Connect link</button>
+            </div>
+          </div>
+
+          <div class="panel source-form source-form--gcs">
+            <div class="form-grid form-grid--wide">
+              <div class="field">
+                <label class="field__label" for="gcs-path">Bucket path</label>
+                <input class="input" id="gcs-path" type="text" placeholder="gs://bucket-name/folder/">
+              </div>
+              <div class="field">
+                <label class="field__label" for="gcs-use">Use for</label>
+                <div class="select">
+                  <select id="gcs-use">
+                    <option>Dataset A</option>
+                    <option>Dataset B</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <p class="hint">All files under this path are included.</p>
+              <button class="btn btn--secondary" type="button">Connect bucket</button>
+            </div>
+          </div>
+
+          <div class="panel source-form source-form--upload">
+            <div class="form-grid form-grid--wide">
+              <label class="dropzone" style="padding: var(--space-6)">
+                <span class="dropzone__title">Drag a CSV or Excel file here or <span>browse</span></span>
+                <input class="file-input" type="file" accept=".csv,.xlsx,.xls">
+              </label>
+              <div class="field">
+                <label class="field__label" for="up-use">Use for</label>
+                <div class="select">
+                  <select id="up-use">
+                    <option>Dataset A</option>
+                    <option>Dataset B</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="connected-title">
+          <div class="section__head">
+            <h2 id="connected-title">Connected sources <span class="section__count">2</span></h2>
+          </div>
+          <div class="lanes">
+            <div class="lane">
+              <div class="lane__head">
+                <span class="lane__tag" aria-hidden="true">A</span>
+                <div>
+                  <h3>Dataset A</h3>
+                  <p>The ledger side, such as GL journal entries.</p>
+                </div>
+              </div>
+              <div class="conn">
+                <span class="conn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.5"/><path d="M4.5 5.5v13c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5v-13"/><path d="M4.5 12c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5"/></svg></span>
+                <div>
+                  <span class="conn__name">fin-recon-prod.iris_gl.journal_entries</span>
+                  <span class="conn__meta">BigQuery table, 1.24M rows</span>
+                </div>
+                <span class="chip chip--success">Connected</span>
+              </div>
+            </div>
+            <div class="lane">
+              <div class="lane__head">
+                <span class="lane__tag" aria-hidden="true">B</span>
+                <div>
+                  <h3>Dataset B</h3>
+                  <p>The other side, such as bank statements.</p>
+                </div>
+              </div>
+              <div class="conn">
+                <span class="conn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></span>
+                <div>
+                  <span class="conn__name">Global Finance / Bank statements / 2026</span>
+                  <span class="conn__meta">SharePoint folder, 38 files</span>
+                </div>
+                <span class="chip chip--success">Connected</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="actions">
+      <a class="link actions__skip" href="dashboard.html">Skip setup for now</a>
+      <a class="btn btn--secondary" href="onboarding-knowledge-base.html">Back</a>
+      <a class="btn btn--primary" href="onboarding-instructions.html">Continue</a>
+    </footer>
+  </div>
+</body>
+</html>

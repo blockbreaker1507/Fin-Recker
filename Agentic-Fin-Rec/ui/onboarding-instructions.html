@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1440">
+  <title>Instructions · Set up · Finance Reconciliation Agent</title>
+  <link rel="icon" type="image/svg+xml" href="assets/American_Express/American_Express_Symbol_6.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/onboarding.css">
+</head>
+<!-- Issue 2: Onboarding, step 4 of 5. Static UI: no JavaScript; buttons are links. -->
+<body class="setup">
+  <aside class="rail" aria-label="Setup progress">
+    <a class="rail__brand" href="index.html" aria-label="American Express Finance Reconciliation Agent, sign-in page">
+      <img class="rail__logo" src="assets/American_Express/American_Express_Logo_Alternative_4.png" alt="" width="40" height="40">
+      <span class="rail__product">Finance Reconciliation Agent</span>
+    </a>
+
+    <div class="rail__intro">
+      <h2>Set up your workspace</h2>
+      <p>Five steps to get the agent ready. You can change any of this later in Settings.</p>
+    </div>
+
+    <nav aria-label="Setup steps">
+      <ol class="steps">
+          <li class="steps__item is-done">
+            <a class="steps__link" href="onboarding.html">
+              <span class="steps__marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+              <span>
+                <span class="steps__title">Add CCIDs</span>
+                <span class="steps__desc">Choose the accounts the agent will reconcile.</span>
+              <span class="steps__result">5 CCIDs verified</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item is-done">
+            <a class="steps__link" href="onboarding-knowledge-base.html">
+              <span class="steps__marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+              <span>
+                <span class="steps__title">Knowledge base</span>
+                <span class="steps__desc">Share SOPs, example recons and supporting documents.</span>
+              <span class="steps__result">9 documents uploaded</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item is-done">
+            <a class="steps__link" href="onboarding-sources.html">
+              <span class="steps__marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+              <span>
+                <span class="steps__title">Connect sources</span>
+                <span class="steps__desc">Point the agent at the data it reconciles.</span>
+              <span class="steps__result">2 sources connected</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item is-current">
+            <a class="steps__link" href="onboarding-instructions.html" aria-current="step">
+              <span class="steps__marker">4</span>
+              <span>
+                <span class="steps__title">Instructions</span>
+                <span class="steps__desc">Tell the agent how your team reconciles, in your words.</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item">
+            <a class="steps__link" href="onboarding-test-run.html">
+              <span class="steps__marker">5</span>
+              <span>
+                <span class="steps__title">Test run</span>
+                <span class="steps__desc">Review suggested rules and try them on sample data.</span>
+              </span>
+            </a>
+          </li>
+      </ol>
+    </nav>
+
+    <p class="rail__help">Questions about setup? Contact <a href="mailto:recon-support@example.com">recon-support@example.com</a></p>
+  </aside>
+
+  <div class="work">
+    <main class="work__scroll" id="main">
+      <div class="work__inner">
+        <header class="work__head">
+          <h1>Write instructions for the agent</h1>
+          <p>Explain how your team reconciles these accounts, in your own words. You can also add notes for individual files and sources below, or mention them by name here and the agent fills them in.</p>
+        </header>
+
+        <section class="panel prompt" aria-label="Main instructions">
+          <div class="prompt__field">
+            <label class="field__label" for="main-prompt">Main instructions</label>
+            <textarea class="textarea" id="main-prompt" aria-describedby="prompt-foot">These are IRIS merchant settlement and intercompany accounts. Match general ledger journal entries (Dataset A) to bank statements (Dataset B).
+
+How to match
+- Treat amounts within $0.01 as a match when the posting dates are no more than 2 business days apart.
+- Bank statements before 3 March 2026 use the old reference format without the TXN- prefix. Strip the prefix before matching those.
+- In the August merchant settlements recon, rows highlighted yellow were matched by hand. Learn from them, but with lower confidence.
+
+Exceptions and escalation
+- The approval email from 28 August confirms the $0.01 tolerance applies to merchant settlements from 1 September 2026.
+- Escalate anything over $10,000 that is still unmatched after 5 business days to the Merchant Settlements team.
+- Never auto-approve intercompany matches; send them for review.</textarea>
+            <div class="prompt__foot" id="prompt-foot">
+              <span>Plain language is fine. The agent asks if anything is unclear.</span>
+              <span>850 / 10,000 characters</span>
+            </div>
+          </div>
+          <aside class="tips" aria-labelledby="tips-title">
+            <h3 id="tips-title">What to include</h3>
+            <ul>
+              <li>How records should match, including keys and tolerances</li>
+              <li>Exceptions, exclusions and known quirks in the data</li>
+              <li>When to escalate, and to whom</li>
+              <li>Anything about a specific file or source. Name it, and the agent adds it to that item's notes.</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="section" aria-labelledby="notes-title">
+          <div class="section__head">
+            <h2 id="notes-title">Instructions for files and sources <span class="section__count">11</span></h2>
+            <p>3 written by you, 3 filled in by the agent</p>
+          </div>
+          <div class="notes">
+            <div class="notes__group">
+              <h3>Sources <span class="section__count">2</span></h3>
+              <div class="note-list">
+              <details class="note" open>
+                <summary>
+                  <span class="note__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.5"/><path d="M4.5 5.5v13c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5v-13"/><path d="M4.5 12c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5"/></svg></span>
+                  <span>
+                    <span class="note__name">fin-recon-prod.iris_gl.journal_entries</span>
+                    <span class="note__sub">Dataset A, BigQuery table</span>
+                  </span>
+                  <span class="chip">Written by you</span>
+                </summary>
+                <div class="note__body">
+                  <textarea class="textarea" aria-label="Instructions for fin-recon-prod.iris_gl.journal_entries">Only use rows where posting_status is POSTED. Ignore reversal entries (je_type REV).</textarea>
+                </div>
+              </details>
+              <details class="note" open>
+                <summary>
+                  <span class="note__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></span>
+                  <span>
+                    <span class="note__name">Global Finance / Bank statements / 2026</span>
+                    <span class="note__sub">Dataset B, SharePoint folder</span>
+                  </span>
+                  <span class="chip chip--info">Filled in by the agent</span>
+                </summary>
+                <div class="note__body">
+                  <textarea class="textarea textarea--agent" aria-label="Instructions for Global Finance / Bank statements / 2026">Statements dated before 3 March 2026 use the old reference format. Strip the TXN- prefix from references before matching.</textarea>
+                  <p class="note__source">From your main instructions: <q>Bank statements before 3 March 2026 use the old reference format without the TXN- prefix.</q> Edit this to override it.</p>
+                </div>
+              </details>
+              </div>
+            </div>
+            <div class="notes__group">
+              <h3>Documents <span class="section__count">9</span></h3>
+              <div class="note-list">
+              <details class="note">
+                <summary>
+                  <span class="note__icon" aria-hidden="true">PDF</span>
+                  <span>
+                    <span class="note__name">IRIS GL to bank reconciliation SOP v4.2.pdf</span>
+                    <span class="note__sub">SOP</span>
+                  </span>
+                  <span class="chip">Written by you</span>
+                </summary>
+                <div class="note__body">
+                  <textarea class="textarea" aria-label="Instructions for IRIS GL to bank reconciliation SOP v4.2.pdf">Section 3 tolerances override anything in older SOP versions.</textarea>
+                </div>
+              </details>
+              <details class="note">
+                <summary>
+                  <span class="note__icon" aria-hidden="true">DOCX</span>
+                  <span>
+                    <span class="note__name">Merchant settlement exceptions playbook.docx</span>
+                    <span class="note__sub">SOP</span>
+                  </span>
+                  <span class="note__empty">None yet</span>
+                </summary>
+                <div class="note__body">
+                  <textarea class="textarea" aria-label="Instructions for Merchant settlement exceptions playbook.docx" placeholder="Add notes for this item, or leave it blank. If your main instructions mention it, the agent fills this in."></textarea>
+                </div>
+              </details>
+              <details class="note">
+                <summary>
+                  <span class="note__icon" aria-hidden="true">XLSX</span>
+                  <span>
+                    <span class="note__name">Month-end close checklist.xlsx</span>
+                    <span class="note__sub">SOP</span>
+                  </span>
+                  <span class="note__empty">None yet</span>
+                </summary>
+                <div class="note__body">
+                  <textarea class="textarea" aria-label="Instructions for Month-end close checklist.xlsx" placeholder="Add notes for this item, or leave it blank. If your main instructions mention it, the agent fills this in."></textarea>
+                </div>
+              </details>
+              <details class="note" open>
+                <summary>
+                  <span class="note__icon" aria-hidden="true">XLSX</span>
+                  <span>
+                    <span class="note__name">Merchant settlements recon, August 2026.xlsx</span>
+                    <span class="note__sub">Example recon</span>
+                  </span>
+                  <span class="chip chip--info">Filled in by the agent</span>
+                </summary>
+                <div class="note__body">
+                  <textarea class="textarea textarea--agent" aria-label="Instructions for Merchant settlements recon, August 2026.xlsx">Rows highlighted yellow were matched by hand. Use them as examples with lower confidence.</textarea>
+                  <p class="note__source">From your main instructions: <q>In the August merchant settlements recon, rows highlighted yellow were matched by hand.</q> Edit this to override it.</p>
+                </div>
+              </details>
+              <details class="note">
+                <summary>
+                  <span class="note__icon" aria-hidden="true">CSV</span>
+                  <span>
+                    <span class="note__name">Intercompany clearing recon Q2.csv</span>
+                    <span class="note__sub">Example recon</span>
+                  </span>
+                  <span class="note__empty">None yet</span>
+                </summary>
+                <div class="note__body">
+                  <textarea class="textarea" aria-label="Instructions for Intercompany clearing recon Q2.csv" placeholder="Add notes for this item, or leave it blank. If your main instructions mention it, the agent fills this in."></textarea>
+                </div>
+              </details>
+              <details class="note">
+                <summary>
+                  <span class="note__icon" aria-hidden="true">PDF</span>
+                  <span>
+                    <span class="note__name">FX rate policy 2026.pdf</span>
+                    <span class="note__sub">Supporting document</span>
+                  </span>
+                  <span class="chip">Written by you</span>
+                </summary>
+                <div class="note__body">
+                  <textarea class="textarea" aria-label="Instructions for FX rate policy 2026.pdf">Use the month-end rate in Appendix B for revaluation entries.</textarea>
+                </div>
+              </details>
+              <details class="note">
+                <summary>
+                  <span class="note__icon" aria-hidden="true">PDF</span>
+                  <span>
+                    <span class="note__name">Bank statement sample, September.pdf</span>
+                    <span class="note__sub">Supporting document</span>
+                  </span>
+                  <span class="note__empty">None yet</span>
+                </summary>
+                <div class="note__body">
+                  <textarea class="textarea" aria-label="Instructions for Bank statement sample, September.pdf" placeholder="Add notes for this item, or leave it blank. If your main instructions mention it, the agent fills this in."></textarea>
+                </div>
+              </details>
+              <details class="note">
+                <summary>
+                  <span class="note__icon" aria-hidden="true">MSG</span>
+                  <span>
+                    <span class="note__name">Approval email, tolerance change.msg</span>
+                    <span class="note__sub">Supporting document</span>
+                  </span>
+                  <span class="chip chip--info">Filled in by the agent</span>
+                </summary>
+                <div class="note__body">
+                  <textarea class="textarea textarea--agent" aria-label="Instructions for Approval email, tolerance change.msg">Confirms the $0.01 tolerance for merchant settlements applies from 1 September 2026.</textarea>
+                  <p class="note__source">From your main instructions: <q>The approval email from 28 August confirms the $0.01 tolerance applies to merchant settlements from 1 September 2026.</q> Edit this to override it.</p>
+                </div>
+              </details>
+              <details class="note">
+                <summary>
+                  <span class="note__icon" aria-hidden="true">PNG</span>
+                  <span>
+                    <span class="note__name">Account mapping screenshot.png</span>
+                    <span class="note__sub">Supporting document</span>
+                  </span>
+                  <span class="note__empty">None yet</span>
+                </summary>
+                <div class="note__body">
+                  <textarea class="textarea" aria-label="Instructions for Account mapping screenshot.png" placeholder="Add notes for this item, or leave it blank. If your main instructions mention it, the agent fills this in."></textarea>
+                </div>
+              </details>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="actions">
+      <a class="link actions__skip" href="dashboard.html">Skip setup for now</a>
+      <a class="btn btn--secondary" href="onboarding-sources.html">Back</a>
+      <a class="btn btn--primary" href="onboarding-test-run.html">Continue</a>
+    </footer>
+  </div>
+</body>
+</html>

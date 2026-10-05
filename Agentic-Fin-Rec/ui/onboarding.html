@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1440">
+  <title>Add CCIDs · Set up · Finance Reconciliation Agent</title>
+  <link rel="icon" type="image/svg+xml" href="assets/American_Express/American_Express_Symbol_6.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/onboarding.css">
+</head>
+<!-- Issue 2: Onboarding, step 1 of 5. Static UI: no JavaScript; buttons are links. -->
+<body class="setup">
+  <aside class="rail" aria-label="Setup progress">
+    <a class="rail__brand" href="index.html" aria-label="American Express Finance Reconciliation Agent, sign-in page">
+      <img class="rail__logo" src="assets/American_Express/American_Express_Logo_Alternative_4.png" alt="" width="40" height="40">
+      <span class="rail__product">Finance Reconciliation Agent</span>
+    </a>
+
+    <div class="rail__intro">
+      <h2>Set up your workspace</h2>
+      <p>Five steps to get the agent ready. You can change any of this later in Settings.</p>
+    </div>
+
+    <nav aria-label="Setup steps">
+      <ol class="steps">
+          <li class="steps__item is-current">
+            <a class="steps__link" href="onboarding.html" aria-current="step">
+              <span class="steps__marker">1</span>
+              <span>
+                <span class="steps__title">Add CCIDs</span>
+                <span class="steps__desc">Choose the accounts the agent will reconcile.</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item">
+            <a class="steps__link" href="onboarding-knowledge-base.html">
+              <span class="steps__marker">2</span>
+              <span>
+                <span class="steps__title">Knowledge base</span>
+                <span class="steps__desc">Share SOPs, example recons and supporting documents.</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item">
+            <a class="steps__link" href="onboarding-sources.html">
+              <span class="steps__marker">3</span>
+              <span>
+                <span class="steps__title">Connect sources</span>
+                <span class="steps__desc">Point the agent at the data it reconciles.</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item">
+            <a class="steps__link" href="onboarding-instructions.html">
+              <span class="steps__marker">4</span>
+              <span>
+                <span class="steps__title">Instructions</span>
+                <span class="steps__desc">Tell the agent how your team reconciles, in your words.</span>
+              </span>
+            </a>
+          </li>
+          <li class="steps__item">
+            <a class="steps__link" href="onboarding-test-run.html">
+              <span class="steps__marker">5</span>
+              <span>
+                <span class="steps__title">Test run</span>
+                <span class="steps__desc">Review suggested rules and try them on sample data.</span>
+              </span>
+            </a>
+          </li>
+      </ol>
+    </nav>
+
+    <p class="rail__help">Questions about setup? Contact <a href="mailto:recon-support@example.com">recon-support@example.com</a></p>
+  </aside>
+
+  <div class="work">
+    <main class="work__scroll" id="main">
+      <div class="work__inner">
+        <header class="work__head">
+          <h1>Add your CCIDs</h1>
+          <p>Enter the CCIDs for the accounts this agent will reconcile. Each one is checked against IRIS so you know it's in scope before you continue.</p>
+        </header>
+
+        <section class="panel" aria-label="Add CCIDs">
+          <div class="ccid-entry">
+            <div class="field">
+              <label class="field__label" for="ccid-input">CCIDs</label>
+              <input class="input" id="ccid-input" type="text" inputmode="numeric" placeholder="For example 10482071, 10482088" aria-describedby="ccid-hint">
+            </div>
+            <button class="btn btn--secondary" type="button">Add CCIDs</button>
+            <label class="btn btn--ghost">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4"/><path d="m7.5 8.5 4.5-4.5 4.5 4.5"/><path d="M4 15v3.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V15"/></svg>
+              Import from file
+              <input class="file-input" type="file" accept=".csv,.xlsx,.xls,.txt">
+            </label>
+          </div>
+          <p class="hint" id="ccid-hint" style="margin-top: var(--space-3)">Separate CCIDs with commas, spaces or new lines. To import, use a CSV or Excel file with one CCID per row.</p>
+        </section>
+
+        <section class="section" aria-labelledby="ccid-list-title">
+          <div class="section__head">
+            <h2 id="ccid-list-title">Added CCIDs <span class="section__count">6</span></h2>
+            <button class="link" type="button">Remove all</button>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">CCID</th>
+                  <th scope="col">Account</th>
+                  <th scope="col">Entity</th>
+                  <th scope="col">Source system</th>
+                  <th scope="col">Status</th>
+                  <th scope="col"><span class="visually-hidden">Remove</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ccid">10482071</td>
+                  <td>Merchant settlements, USD</td>
+                  <td class="table__muted">US</td>
+                  <td class="table__muted">IRIS</td>
+                  <td><span class="chip chip--success">Verified</span></td>
+                  <td class="table__actions"><button class="icon-btn" type="button" aria-label="Remove CCID 10482071"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button></td>
+                </tr>
+                <tr>
+                  <td class="ccid">10482088</td>
+                  <td>Card Member refunds</td>
+                  <td class="table__muted">US</td>
+                  <td class="table__muted">IRIS</td>
+                  <td><span class="chip chip--success">Verified</span></td>
+                  <td class="table__actions"><button class="icon-btn" type="button" aria-label="Remove CCID 10482088"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button></td>
+                </tr>
+                <tr>
+                  <td class="ccid">10482093</td>
+                  <td>Intercompany clearing</td>
+                  <td class="table__muted">UK</td>
+                  <td class="table__muted">IRIS</td>
+                  <td><span class="chip chip--success">Verified</span></td>
+                  <td class="table__actions"><button class="icon-btn" type="button" aria-label="Remove CCID 10482093"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button></td>
+                </tr>
+                <tr>
+                  <td class="ccid">10482105</td>
+                  <td>FX revaluation</td>
+                  <td class="table__muted">US</td>
+                  <td class="table__muted">IRIS</td>
+                  <td><span class="chip chip--success">Verified</span></td>
+                  <td class="table__actions"><button class="icon-btn" type="button" aria-label="Remove CCID 10482105"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button></td>
+                </tr>
+                <tr>
+                  <td class="ccid">10482117</td>
+                  <td>Rewards liability</td>
+                  <td class="table__muted">US</td>
+                  <td class="table__muted">IRIS</td>
+                  <td><span class="chip chip--success">Verified</span></td>
+                  <td class="table__actions"><button class="icon-btn" type="button" aria-label="Remove CCID 10482117"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button></td>
+                </tr>
+                <tr class="is-error">
+                  <td class="ccid">1048213</td>
+                  <td colspan="3"><span class="table__muted">No account found in IRIS</span><span class="row-note">CCIDs have 8 digits. Check the number or remove it.</span></td>
+                  <td><span class="chip chip--error">Not found</span></td>
+                  <td class="table__actions"><button class="icon-btn" type="button" aria-label="Remove CCID 1048213"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="actions">
+      <a class="link actions__skip" href="dashboard.html">Skip setup for now</a>
+      <span class="actions__status">5 of 6 CCIDs verified</span>
+      <a class="btn btn--primary" href="onboarding-knowledge-base.html">Continue</a>
+    </footer>
+  </div>
+</body>
+</html>

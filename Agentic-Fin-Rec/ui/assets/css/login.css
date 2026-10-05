@@ -1,0 +1,792 @@
+/* ==========================================================================
+   Login screen (Issue 1)
+   --------------------------------------------------------------------------
+   Desktop (>= 1024px): split layout, brand panel left, sign-in right.
+   Tablet  (< 1024px):  centred card on the branded navy background.
+   Depends on tokens.css and base.css.
+   ========================================================================== */
+
+.login {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+}
+
+/* ---- Logo --------------------------------------------------------------- */
+/* American Express Blue Box logo, used as supplied (no recolour or rounding). */
+.brand__mark {
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+/* ==========================================================================
+   Brand panel
+   ========================================================================== */
+.brand {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-8);
+  min-height: 100dvh;
+  padding: clamp(var(--space-8), 3.6vw, var(--space-12)) clamp(var(--space-8), 4.5vw, var(--space-16));
+  overflow: hidden;
+  color: var(--color-on-dark);
+  background:
+    radial-gradient(60% 50% at 12% 0%, var(--color-primary-glow), transparent 70%),
+    radial-gradient(50% 45% at 100% 100%, var(--color-primary-glow-soft), transparent 70%),
+    linear-gradient(160deg, var(--color-navy) 0%, var(--color-navy-deep) 100%);
+}
+
+/* Fine grid that fades out toward the edges */
+.brand::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--color-on-dark-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-on-dark-grid) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 40% 45%, black 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 40% 45%, black 20%, transparent 75%);
+}
+
+.brand__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  align-self: flex-start;
+  color: inherit;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+
+.brand__logo:focus-visible {
+  outline-color: var(--color-on-dark);
+  outline-offset: 4px;
+}
+
+.brand__name {
+  display: grid;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.brand__eyebrow {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-on-dark-subtle);
+}
+
+.brand__hero {
+  display: grid;
+  gap: var(--space-5);
+  max-width: 34rem;
+}
+
+.brand__headline {
+  font-size: var(--text-display);
+  font-weight: var(--weight-semibold);
+  color: var(--color-on-dark);
+  animation: fade-up var(--duration-slow) var(--ease-out) both;
+}
+
+.brand__tagline {
+  max-width: 30rem;
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  color: var(--color-on-dark-muted);
+  animation: fade-up var(--duration-slow) var(--ease-out) 80ms both;
+}
+
+.brand__legal {
+  font-size: var(--text-xs);
+  color: var(--color-on-dark-subtle);
+}
+
+/* ---- Capability cycle --------------------------------------------------- */
+/* Six nodes light up in turn, in sync with a highlight travelling around the
+   ring. Node i is active from i * step to (i + 1) * step of each loop.
+   Hovering a node pauses the loop and shows that capability. */
+.cycle {
+  --cycle-step: 3s;
+  --cycle-length: 18s; /* 6 x step */
+
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-2);
+  animation: fade-up var(--duration-slow) var(--ease-out) 160ms both;
+}
+
+.cycle__graph {
+  width: clamp(17rem, calc((100vh - 35.5rem) * 1.19), 31rem);
+  width: clamp(17rem, calc((100dvh - 35.5rem) * 1.19), 31rem);
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+  font-family: var(--font-sans);
+}
+
+.cycle__ring {
+  fill: none;
+  stroke: var(--color-on-dark-line);
+  stroke-width: 1.5;
+}
+
+.cycle__chevrons path,
+.cycle__arrowhead {
+  fill: none;
+  stroke: var(--color-on-dark-subtle);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cycle__comet {
+  fill: none;
+  stroke: var(--color-primary-on-dark);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 46 554; /* pathLength is 600: 100 units per node */
+  animation: cycle-comet var(--cycle-length) linear infinite;
+}
+
+/* Input / output tags */
+.cycle__io rect {
+  fill: var(--color-on-dark-glass);
+  stroke: var(--color-on-dark-line);
+}
+
+.cycle__io-title {
+  fill: var(--color-on-dark);
+  font-size: 14px;
+  font-weight: var(--weight-semibold);
+}
+
+.cycle__io-sub {
+  fill: var(--color-on-dark-muted);
+  font-size: 12.5px;
+}
+
+.cycle__flow {
+  fill: none;
+  stroke: var(--color-on-dark-subtle);
+  stroke-width: 1.25;
+  stroke-dasharray: 3 4;
+}
+
+/* Hub */
+.cycle__hub > circle:first-child {
+  fill: var(--color-on-dark-glass);
+  stroke: var(--color-on-dark-line);
+}
+
+.cycle__hub-title,
+.cycle__hub-sub {
+  text-anchor: middle;
+}
+
+.cycle__hub-title {
+  fill: var(--color-on-dark);
+  font-size: 17px;
+  font-weight: var(--weight-semibold);
+}
+
+.cycle__hub-sub {
+  fill: var(--color-on-dark-muted);
+  font-size: 12px;
+}
+
+/* Nodes */
+.node__halo {
+  fill: var(--color-primary-glow);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: cycle-halo;
+}
+
+.node__dot {
+  fill: var(--color-navy-raised);
+  stroke: var(--color-on-dark-line);
+  stroke-width: 1.5;
+  animation-name: cycle-dot;
+}
+
+.node__icon {
+  fill: none;
+  stroke: var(--color-on-dark-muted);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation-name: cycle-icon;
+}
+
+.node__label {
+  fill: var(--color-on-dark-muted);
+  font-size: 15px;
+  font-weight: var(--weight-medium);
+  animation-name: cycle-label;
+}
+
+/* Details for the active capability */
+.cycle__details {
+  display: grid;
+  max-width: 31rem;
+}
+
+.cycle__detail {
+  grid-area: 1 / 1;
+  opacity: 0;
+  animation-name: cycle-detail;
+}
+
+.cycle__detail--intro {
+  animation: none;
+}
+
+/* Shared timing: everything keyed to a node runs on the same loop */
+.node__halo,
+.node__dot,
+.node__icon,
+.node__label,
+.cycle__detail {
+  animation-duration: var(--cycle-length);
+  animation-timing-function: var(--ease-in-out);
+  animation-iteration-count: infinite;
+  animation-delay: calc(var(--i) * var(--cycle-step));
+}
+
+.cycle__step {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-primary-on-dark);
+}
+
+.cycle__title {
+  margin-top: var(--space-1);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-on-dark);
+}
+
+.cycle__text {
+  font-size: var(--text-sm);
+  color: var(--color-on-dark-muted);
+}
+
+.cycle__parts {
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-on-dark-subtle);
+}
+
+/* Hover: pause the loop and show the hovered capability.
+   !important is needed to override running animations. */
+.cycle:has(.node:hover) * {
+  animation-play-state: paused !important;
+}
+
+.cycle:has(.node:hover) .cycle__detail {
+  opacity: 0 !important;
+}
+
+.cycle:has(.node:hover) .node__dot {
+  fill: var(--color-navy-raised) !important;
+  stroke: var(--color-on-dark-line) !important;
+}
+
+.cycle:has(.node:hover) .node__halo {
+  opacity: 0 !important;
+}
+
+.cycle:has(.node:hover) .node__icon {
+  stroke: var(--color-on-dark-muted) !important;
+}
+
+.cycle:has(.node:hover) .node__label {
+  fill: var(--color-on-dark-muted) !important;
+}
+
+.cycle:has(.node:hover) .node:hover .node__dot {
+  fill: var(--color-primary) !important;
+  stroke: var(--color-primary-on-dark) !important;
+}
+
+.cycle:has(.node:hover) .node:hover .node__halo {
+  opacity: 0.45 !important;
+  transform: none !important;
+}
+
+.cycle:has(.node:hover) .node:hover .node__icon {
+  stroke: var(--color-on-dark) !important;
+}
+
+.cycle:has(.node:hover) .node:hover .node__label {
+  fill: var(--color-on-dark) !important;
+}
+
+.cycle:has(.node[data-n="0"]:hover) .cycle__detail[data-n="0"],
+.cycle:has(.node[data-n="1"]:hover) .cycle__detail[data-n="1"],
+.cycle:has(.node[data-n="2"]:hover) .cycle__detail[data-n="2"],
+.cycle:has(.node[data-n="3"]:hover) .cycle__detail[data-n="3"],
+.cycle:has(.node[data-n="4"]:hover) .cycle__detail[data-n="4"],
+.cycle:has(.node[data-n="5"]:hover) .cycle__detail[data-n="5"] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ==========================================================================
+   Sign-in side
+   ========================================================================== */
+.auth {
+  display: grid;
+  place-items: center;
+  padding: var(--space-10) var(--space-6);
+}
+
+.auth__inner {
+  display: grid;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: 26.5rem;
+  animation: fade-up var(--duration-slow) var(--ease-out) both;
+}
+
+.auth-card {
+  padding: clamp(var(--space-6), 5vw, var(--space-10));
+}
+
+.auth-card__header {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.auth-card__title {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+}
+
+/* Lede and alert stack in the same cell: no layout shift on error */
+.auth-card__status {
+  display: grid;
+  min-height: 4rem;
+}
+
+.auth-card__status > * {
+  grid-area: 1 / 1;
+  align-self: start;
+  transition: opacity var(--duration) var(--ease-out),
+              visibility var(--duration) var(--ease-out),
+              transform var(--duration) var(--ease-out);
+}
+
+.auth-card__lede {
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+}
+
+.auth-card__alert {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.auth-card.has-error .auth-card__alert {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+.auth-card.has-error .auth-card__lede {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* ---- Form --------------------------------------------------------------- */
+.auth-form {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.auth-form__fields {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.auth-form__fields:disabled .field__label {
+  color: var(--color-text-muted);
+}
+
+.field__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.field__row .field__message {
+  flex: 1;
+  min-width: 0;
+}
+
+.field__aside {
+  flex: none;
+  font-size: var(--text-xs);
+  line-height: 1.25rem;
+}
+
+/* Show / hide password icon swap */
+.input-action .icon-eye-off,
+.input-action[aria-pressed="true"] .icon-eye {
+  display: none;
+}
+
+.input-action[aria-pressed="true"] .icon-eye-off {
+  display: block;
+}
+
+.auth-form__actions {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* ---- Demo hint (native <details>) -------------------------------------- */
+.demo-hint {
+  padding: var(--space-3) var(--space-4);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.demo-hint summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: var(--weight-medium);
+  color: var(--color-navy);
+  cursor: pointer;
+  list-style: none;
+}
+
+.demo-hint summary::-webkit-details-marker {
+  display: none;
+}
+
+.demo-hint summary::before {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.demo-hint[open] summary::before {
+  transform: rotate(45deg);
+}
+
+.demo-hint summary:focus-visible {
+  border-radius: 2px;
+}
+
+.demo-hint p {
+  margin-top: var(--space-2);
+  line-height: var(--leading-normal);
+}
+
+/* ---- Footer ------------------------------------------------------------- */
+.auth-footer {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: center;
+  font-size: var(--text-xs);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.auth-footer .link {
+  white-space: nowrap;
+}
+
+.auth-footer__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-subtle);
+}
+
+/* ==========================================================================
+   Forgot-password sheet (native popover)
+   ========================================================================== */
+.sheet {
+  inset: 0;
+  width: min(26rem, calc(100vw - 2rem));
+  height: fit-content;
+  margin: auto;
+  padding: var(--space-8);
+  border: 0;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.sheet:popover-open {
+  animation: sheet-in var(--duration-slow) var(--ease-out);
+}
+
+.sheet::backdrop {
+  background: var(--backdrop);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+/* Browsers without popover support: keep the sheet hidden rather than inline */
+@supports not selector(:popover-open) {
+  .sheet {
+    display: none;
+  }
+}
+
+.sheet__icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto var(--space-4);
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.sheet__icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.sheet__title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+}
+
+.sheet__body {
+  margin-top: var(--space-3);
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+}
+
+.sheet__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+/* Laptop-height screens (e.g. 1280 x 800): tighten the chrome around the
+   cycle so it stays legible, and trim the sign-in column so nothing scrolls */
+@media (min-width: 1024px) and (max-height: 860px) {
+  .brand {
+    gap: var(--space-6);
+    padding-block: var(--space-8);
+  }
+
+  .brand__hero {
+    gap: var(--space-4);
+  }
+
+  .brand__headline {
+    font-size: var(--text-display-sm);
+  }
+
+  .brand__tagline {
+    font-size: var(--text-base);
+  }
+
+  .cycle__graph {
+    width: clamp(17rem, calc((100vh - 28rem) * 1.19), 31rem);
+    width: clamp(17rem, calc((100dvh - 28rem) * 1.19), 31rem);
+  }
+
+  .auth {
+    padding-block: var(--space-6);
+  }
+}
+
+/* Short desktop screens: smaller headline so the cycle keeps its size */
+@media (min-width: 1024px) and (max-height: 779.98px) {
+  .brand__headline {
+    font-size: var(--text-2xl);
+  }
+}
+
+/* Tablet and below: centred card on the branded background */
+@media (max-width: 1023.98px) {
+  .login {
+    grid-template-columns: 1fr;
+    align-content: start;
+    background:
+      radial-gradient(70% 40% at 10% 0%, var(--color-primary-glow), transparent 70%),
+      radial-gradient(60% 40% at 100% 100%, var(--color-primary-glow-soft), transparent 70%),
+      linear-gradient(160deg, var(--color-navy) 0%, var(--color-navy-deep) 100%);
+    background-attachment: fixed;
+  }
+
+  .brand {
+    min-height: 0;
+    align-items: center;
+    padding: var(--space-10) var(--space-6) 0;
+    background: none;
+  }
+
+  .brand::before,
+  .brand__hero,
+  .brand__legal {
+    display: none;
+  }
+
+  .brand__logo {
+    align-self: center;
+  }
+
+  .auth {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-12);
+  }
+
+  .auth-card {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .demo-hint {
+    border-color: var(--color-on-dark-line);
+    color: var(--color-on-dark-muted);
+  }
+
+  .demo-hint summary {
+    color: var(--color-on-dark);
+  }
+
+  .demo-hint code {
+    background: var(--color-on-dark-line);
+    color: var(--color-on-dark);
+  }
+
+  .auth-footer,
+  .auth-footer__meta {
+    color: var(--color-on-dark-muted);
+  }
+
+  .auth-footer .link {
+    color: var(--color-on-dark);
+    text-decoration-color: var(--color-on-dark-subtle);
+  }
+
+  .auth-footer .link:focus-visible,
+  .demo-hint summary:focus-visible {
+    outline-color: var(--color-on-dark);
+  }
+}
+
+/* Tall tablets (portrait): centre the whole stack vertically */
+@media (max-width: 1023.98px) and (min-height: 900px) {
+  .login {
+    align-content: center;
+  }
+}
+
+/* ==========================================================================
+   Keyframes
+   ========================================================================== */
+@keyframes cycle-comet {
+  from { stroke-dashoffset: 46; }
+  to   { stroke-dashoffset: -554; }
+}
+
+@keyframes cycle-dot {
+  0%, 17%, 100% { fill: var(--color-navy-raised); stroke: var(--color-on-dark-line); }
+  2%, 15%       { fill: var(--color-primary);     stroke: var(--color-primary-on-dark); }
+}
+
+@keyframes cycle-halo {
+  0%, 17%, 100% { opacity: 0;    transform: scale(0.7); }
+  3%, 15%       { opacity: 0.45; transform: none; }
+}
+
+@keyframes cycle-icon {
+  0%, 17%, 100% { stroke: var(--color-on-dark-muted); }
+  2%, 15%       { stroke: var(--color-on-dark); }
+}
+
+@keyframes cycle-label {
+  0%, 17%, 100% { fill: var(--color-on-dark-muted); }
+  2%, 15%       { fill: var(--color-on-dark); }
+}
+
+@keyframes cycle-detail {
+  0%, 17%, 100% { opacity: 0; transform: translateY(4px); }
+  3%, 14.5%     { opacity: 1; transform: none; }
+}
+
+@keyframes sheet-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-delay: 0ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .btn__spinner {
+    animation: spin 1.6s linear infinite !important;
+  }
+
+  /* Static cycle: no travelling highlight, show the intro caption */
+  .cycle__comet {
+    display: none;
+  }
+
+  .cycle__detail--intro {
+    opacity: 1;
+  }
+}
