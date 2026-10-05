@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1440">
+  <title>Daily review · Finance Reconciliation Agent</title>
+  <link rel="icon" type="image/svg+xml" href="assets/American_Express/American_Express_Symbol_6.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/onboarding.css">
+  <link rel="stylesheet" href="assets/css/daily-review.css">
+</head>
+<!-- Daily feedback screen. Static UI: no JavaScript; filters and buttons are visual only.
+     Reuses the .verdict, .rec, .rule-cell and .section pieces from onboarding.css. -->
+<body class="daily">
+  <header class="topbar">
+    <a class="topbar__brand" href="dashboard.html" aria-label="Finance Reconciliation Agent, dashboard">
+      <img class="topbar__logo" src="assets/American_Express/American_Express_Logo_0.svg" alt="American Express" width="282" height="18">
+      <span class="topbar__product">Finance Reconciliation Agent</span>
+    </a>
+    <nav class="topbar__nav" aria-label="Main">
+      <a class="topbar__link" href="dashboard.html">Dashboard</a>
+      <a class="topbar__link" href="daily-review.html" aria-current="page">Daily review</a>
+    </nav>
+    <div class="topbar__user">
+      <span>Jordan Lee</span>
+      <a class="link" href="index.html">Sign out</a>
+    </div>
+  </header>
+
+  <form class="filters" aria-label="Filter matches">
+    <div class="filters__group">
+      <span class="field__label" id="date-label">Date matched</span>
+      <div class="filters__row">
+        <div class="seg" role="radiogroup" aria-labelledby="date-label"><label class="seg__opt"><input type="radio" name="range"><span>Today</span></label><label class="seg__opt"><input type="radio" name="range"><span>Last 3 days</span></label><label class="seg__opt"><input type="radio" name="range" checked><span>Last 7 days</span></label><label class="seg__opt"><input type="radio" name="range"><span>Custom</span></label></div>
+        <div class="dates">
+          <label class="visually-hidden" for="from">From</label>
+          <input class="input input--compact" id="from" type="date" value="2026-09-29">
+          <span class="dates__to" aria-hidden="true">to</span>
+          <label class="visually-hidden" for="to">To</label>
+          <input class="input input--compact" id="to" type="date" value="2026-10-05">
+        </div>
+      </div>
+    </div>
+
+    <div class="filters__group">
+      <span class="field__label" id="ccid-label">CCIDs</span>
+      <details class="multi">
+        <summary class="multi__trigger" aria-labelledby="ccid-label"><span>All 5 CCIDs</span></summary>
+        <div class="multi__menu">
+          <div class="multi__tools"><a class="link" href="daily-review.html">Select all</a><a class="link" href="daily-review.html">Clear</a></div>
+          <ul class="multi__list">
+              <li><label class="multi__opt"><input type="checkbox" checked><span class="multi__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="multi__label"><b>10482071</b><span>Merchant settlements, USD</span></span></label></li>
+              <li><label class="multi__opt"><input type="checkbox" checked><span class="multi__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="multi__label"><b>10482088</b><span>Card Member refunds</span></span></label></li>
+              <li><label class="multi__opt"><input type="checkbox" checked><span class="multi__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="multi__label"><b>10482093</b><span>Intercompany clearing</span></span></label></li>
+              <li><label class="multi__opt"><input type="checkbox" checked><span class="multi__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="multi__label"><b>10482105</b><span>FX revaluation</span></span></label></li>
+              <li><label class="multi__opt"><input type="checkbox" checked><span class="multi__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="multi__label"><b>10482117</b><span>Rewards liability</span></span></label></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div class="filters__apply">
+      <a class="link" href="daily-review.html">Clear filters</a>
+      <button class="btn btn--secondary" type="button">Apply filters</button>
+    </div>
+  </form>
+
+  <main class="daily__scroll" id="main">
+    <div class="daily__inner">
+      <header class="work__head daily__head">
+        <h1>Review the agent's matches</h1>
+        <p>Approve, mark Not sure, or decline each match the agent made. Your answers teach it for tomorrow.</p>
+      </header>
+
+        <section class="section day" aria-labelledby="day-2026-10-05">
+          <div class="section__head">
+            <h2 id="day-2026-10-05">Today, Monday 5 October 2026</h2>
+            <p>Matched at 06:00, 5 matches, 0 reviewed</p>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">CCID</th>
+                  <th scope="col">Dataset A record</th>
+                  <th scope="col">Dataset B record</th>
+                  <th scope="col">Matched by</th>
+                  <th scope="col">Your review</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="rec"><b>10482071</b><span>Merchant settlements, USD</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>INV-20502</b><span class="rec__amount">$18,240.00</span></span><span>Merchant settlement</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-89104</b><span class="rec__amount">$18,240.00</span></span><span>AMEX SETTLE 1002</span></span></td>
+                  <td><span class="rule-cell"><span>Reference and amount</span><span class="chip chip--success">99% confidence</span></span></td>
+                  <td><fieldset class="verdict"><legend class="visually-hidden">Review match for INV-20502</legend><label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-INV-20502" value="approve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-INV-20502" value="unsure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-INV-20502" value="decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label></fieldset></td>
+                </tr>
+                <tr>
+                  <td><span class="rec"><b>10482071</b><span>Merchant settlements, USD</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>INV-20507</b><span class="rec__amount">$6,415.25</span></span><span>Merchant settlement</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-89111</b><span class="rec__amount">$6,415.25</span></span><span>AMEX SETTLE 1002</span></span></td>
+                  <td><span class="rule-cell"><span>Reference and amount</span><span class="chip chip--success">98% confidence</span></span></td>
+                  <td><fieldset class="verdict"><legend class="visually-hidden">Review match for INV-20507</legend><label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-INV-20507" value="approve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-INV-20507" value="unsure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-INV-20507" value="decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label></fieldset></td>
+                </tr>
+                <tr>
+                  <td><span class="rec"><b>10482088</b><span>Card Member refunds</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>RF-33871</b><span class="rec__amount">$142.80</span></span><span>Refund, Card Member</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-89123</b><span class="rec__amount">$142.80</span></span><span>CM REFUND 0930</span></span></td>
+                  <td><span class="rule-cell"><span>Amount and date</span><span class="chip chip--success">94% confidence</span></span></td>
+                  <td><fieldset class="verdict"><legend class="visually-hidden">Review match for RF-33871</legend><label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-RF-33871" value="approve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-RF-33871" value="unsure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-RF-33871" value="decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label></fieldset></td>
+                </tr>
+                <tr>
+                  <td><span class="rec"><b>10482093</b><span>Intercompany clearing</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>IC-70144</b><span class="rec__amount">$52,600.00</span></span><span>Intercompany clearing, UK</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-89130</b><span class="rec__amount">$52,600.00</span></span><span>IC CLEAR UK 1001</span></span></td>
+                  <td><span class="rule-cell"><span>Description similarity</span><span class="chip chip--success">87% confidence</span></span></td>
+                  <td><fieldset class="verdict"><legend class="visually-hidden">Review match for IC-70144</legend><label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-IC-70144" value="approve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-IC-70144" value="unsure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-IC-70144" value="decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label></fieldset></td>
+                </tr>
+                <tr>
+                  <td><span class="rec"><b>10482105</b><span>FX revaluation</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>FX-12009</b><span class="rec__amount">$9,871.40</span></span><span>FX revaluation, September</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-89142</b><span class="amount-diff">$9,810.15</span></span><span>FX REVAL SEP, <span class="amount-diff">$61.25 difference</span></span></span></td>
+                  <td><span class="rule-cell"><span>Description similarity</span><span class="chip chip--warning">66% confidence</span></span></td>
+                  <td><fieldset class="verdict"><legend class="visually-hidden">Review match for FX-12009</legend><label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-FX-12009" value="approve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-FX-12009" value="unsure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-FX-12009" value="decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label></fieldset></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section day" aria-labelledby="day-2026-10-02">
+          <div class="section__head">
+            <h2 id="day-2026-10-02">Friday 2 October 2026</h2>
+            <p>Matched at 06:00, 3 matches, 3 reviewed</p>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">CCID</th>
+                  <th scope="col">Dataset A record</th>
+                  <th scope="col">Dataset B record</th>
+                  <th scope="col">Matched by</th>
+                  <th scope="col">Your review</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="rec"><b>10482071</b><span>Merchant settlements, USD</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>INV-20488</b><span class="rec__amount">$3,120.00</span></span><span>Merchant settlement</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-89061</b><span class="rec__amount">$3,120.00</span></span><span>AMEX SETTLE 0930</span></span></td>
+                  <td><span class="rule-cell"><span>Reference and amount</span><span class="chip chip--success">99% confidence</span></span></td>
+                  <td><fieldset class="verdict"><legend class="visually-hidden">Review match for INV-20488</legend><label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-INV-20488" value="approve" checked><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-INV-20488" value="unsure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-INV-20488" value="decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label></fieldset></td>
+                </tr>
+                <tr>
+                  <td><span class="rec"><b>10482117</b><span>Rewards liability</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>RW-90215</b><span class="rec__amount">$27,400.00</span></span><span>Rewards accrual, September</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-89077</b><span class="rec__amount">$27,400.00</span></span><span>REWARDS ACCR SEP</span></span></td>
+                  <td><span class="rule-cell"><span>Description similarity</span><span class="chip chip--success">88% confidence</span></span></td>
+                  <td><fieldset class="verdict"><legend class="visually-hidden">Review match for RW-90215</legend><label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-RW-90215" value="approve" checked><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-RW-90215" value="unsure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-RW-90215" value="decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label></fieldset></td>
+                </tr>
+                <tr>
+                  <td><span class="rec"><b>10482088</b><span>Card Member refunds</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>RF-33860</b><span class="rec__amount">$1,075.50</span></span><span>Refund, Card Member</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-89080</b><span class="amount-diff">$1,057.50</span></span><span>CM REFUND 0929, <span class="amount-diff">$18.00 difference</span></span></span></td>
+                  <td><span class="rule-cell"><span>Description similarity</span><span class="chip chip--warning">71% confidence</span></span></td>
+                  <td><fieldset class="verdict"><legend class="visually-hidden">Review match for RF-33860</legend><label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-RF-33860" value="approve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-RF-33860" value="unsure" checked><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-RF-33860" value="decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label></fieldset></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section day" aria-labelledby="day-2026-10-01">
+          <div class="section__head">
+            <h2 id="day-2026-10-01">Thursday 1 October 2026</h2>
+            <p>Matched at 06:00, 2 matches, 2 reviewed</p>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">CCID</th>
+                  <th scope="col">Dataset A record</th>
+                  <th scope="col">Dataset B record</th>
+                  <th scope="col">Matched by</th>
+                  <th scope="col">Your review</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="rec"><b>10482093</b><span>Intercompany clearing</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>IC-70131</b><span class="rec__amount">$14,990.00</span></span><span>Intercompany clearing, UK</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-89012</b><span class="amount-diff">$14,900.00</span></span><span>IC CLEAR UK 0929, <span class="amount-diff">$90.00 difference</span></span></span></td>
+                  <td><span class="rule-cell"><span>Description similarity</span><span class="chip chip--warning">61% confidence</span></span></td>
+                  <td><fieldset class="verdict"><legend class="visually-hidden">Review match for IC-70131</legend><label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-IC-70131" value="approve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-IC-70131" value="unsure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-IC-70131" value="decline" checked><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label></fieldset></td>
+                </tr>
+                <tr>
+                  <td><span class="rec"><b>10482071</b><span>Merchant settlements, USD</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>INV-20471</b><span class="rec__amount">$2,260.40</span></span><span>Merchant settlement</span></span></td>
+                  <td><span class="rec"><span class="rec__line"><b>TXN-89019</b><span class="rec__amount">$2,260.40</span></span><span>AMEX SETTLE 0929</span></span></td>
+                  <td><span class="rule-cell"><span>Reference and amount</span><span class="chip chip--success">98% confidence</span></span></td>
+                  <td><fieldset class="verdict"><legend class="visually-hidden">Review match for INV-20471</legend><label class="verdict__opt verdict__opt--approve"><input type="radio" name="verdict-INV-20471" value="approve" checked><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Approve</label><label class="verdict__opt verdict__opt--unsure"><input type="radio" name="verdict-INV-20471" value="unsure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Not sure</label><label class="verdict__opt verdict__opt--decline"><input type="radio" name="verdict-INV-20471" value="decline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>Decline</label></fieldset></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+    </div>
+  </main>
+
+  <footer class="actions">
+    <p class="actions__status"><strong>5 of 10</strong> matches reviewed, 5 to go</p>
+    <span class="actions__skip"></span>
+    <button class="btn btn--secondary" type="button">Approve all high-confidence</button>
+    <button class="btn btn--primary" type="button">Submit reviews</button>
+  </footer>
+</body>
+</html>

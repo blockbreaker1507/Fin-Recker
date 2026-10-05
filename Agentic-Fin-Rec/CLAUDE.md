@@ -35,6 +35,7 @@ Agentic-Fin-Rec/
 └── ui/
     ├── index.html                      Issue 1: login (+ capability cycle)
     ├── onboarding*.html                Issue 2: setup steps (CCIDs, knowledge base, sources, instructions, test run)
+    ├── daily-review.html               Daily feedback screen: filter by date matched + CCID, approve/not sure/decline each match
     ├── dashboard.html                  placeholder until Issue 5 (its script marks onboarding done)
     └── assets/
         ├── css/tokens.css              design tokens (ONLY place for raw colours)

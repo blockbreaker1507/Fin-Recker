@@ -22,6 +22,7 @@ ui/
 ├── onboarding-sources.html  Step 3, Connect sources
 ├── onboarding-instructions.html  Step 4, Instructions (main prompt + per-file/source notes)
 ├── onboarding-test-run.html Step 5, Test run (Approve / Not sure / Decline review)
+├── daily-review.html        Daily feedback screen (static; daily-review.css)
 ├── dashboard.html           Placeholder (Issue 5)
 └── assets/
     ├── css/

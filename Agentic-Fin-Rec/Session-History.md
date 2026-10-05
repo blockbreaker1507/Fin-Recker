@@ -11,6 +11,7 @@ Running log of work across sessions. **Read the status board and latest entry at
 | 1 | Login Screen | ✅ Built, awaiting review | `ui/index.html`; Amex branding; keeps its JS/mock sign-in by decision (pre-dates static scope); not yet committed |
 | 2 | Onboarding Screen | ✅ Built, awaiting review | 5 static steps: CCIDs, knowledge base, sources, instructions, test run; not yet committed |
 | 3 | Feedback Screen | Not started | |
+| – | Daily Feedback Screen | ✅ Built, awaiting review | `ui/daily-review.html` (not in the original 10 issues); date + CCID filters, daily match approval |
 | 4 | Design System and App Shell | 🟡 Partial | Tokens + base components (incl. chip, table, select, switch) done; sidebar/top bar/style-guide page pending |
 | 5 | Dashboard / Home | Not started | Placeholder `ui/dashboard.html` exists for routing |
 | 6 | Data Source Selection and Upload | Not started | |
@@ -44,6 +45,24 @@ Template: copy for each new session.
 **Verification:** what was checked and the result.
 **Next:** what should happen next session.
 -->
+
+### Session 7: 2026-10-05: Daily feedback screen
+
+**Goal:** A screen the user opens every day after onboarding to approve each match, filterable by the date the matching ran and by CCID.
+
+**Done:**
+- `ui/daily-review.html` + `assets/css/daily-review.css`, no JS. Top bar, filter bar, matches grouped by matching date (one table per day), fixed action bar ("x of y reviewed", Approve all high-confidence, Submit reviews).
+- Filters: date matched (Today / Last 3 days / Last 7 days / Custom + native from/to date inputs) and CCIDs (native `<details>` multi-select with checkboxes). Visual only, per static-UI scope.
+- Reuses `.verdict` (Approve / Not sure / Decline), `.rec`, `.rule-cell`, `.section`, `.actions` from onboarding.css. Dashboard placeholder links to it.
+
+**Decisions (and why):**
+- Not one of the 10 issues; built from the request with sample data using the onboarding CCIDs.
+- Dropped a status filter (To review / Reviewed): not requested, and it overflowed the bar at 1280.
+- No sidebar: the app shell (Issue 4) doesn't exist yet, so a simple top bar stands in.
+
+**Verification:** Scratchpad Playwright at 1440x900 and 1280x800: no horizontal scroll, no console errors; CCID dropdown opens.
+
+**Next:** User review; empty state (no matches for the filters) as a static variant; replace top bar with the Issue 4 shell.
 
 ### Session 6: 2026-10-04: Instructions step + review verdicts
 
